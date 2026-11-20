@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <!-- Adapta la página al ancho de la pantalla en celular -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alan Jair Cruz Arenas</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Mis estilos. Van después de Bootstrap para poder sobrescribirlo.
+         El ../ sube una carpeta porque este HTML está en una subcarpeta -->
+    <link href="../css/estilos.css" rel="stylesheet">
+
+    <!-- Google Fonts. Los preconnect abren la conexión antes para que cargue más rápido -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:opsz,wght@17..18,400..700&family=Sora:wght@100..800&display=swap" rel="stylesheet">
+
+    <!-- Kit de íconos (Font Awesome) -->
+    <script src="https://kit.fontawesome.com/4d93aa050a.js" crossorigin="anonymous"></script>
+</head>
+
+
+
+<body>
+
+<!-- ========== BARRA DE NAVEGACIÓN ========== -->
+<!-- navbar-expand-md: el menú se ve completo desde pantallas medianas;
+     en pantallas chicas se esconde detrás de la hamburguesa.
+     sticky-top: la barra se queda fija arriba al hacer scroll -->
+<nav class="navbar navbar-expand-md barra-navegacion sticky-top">
+    <div class="container-fluid">
+
+        <!-- Logo, enlace a la página de inicio -->
+        <a class="navbar-brand fw-bold" href="index.html">
+            <img src="../assets/logo_corregido-removebg-preview.png" alt="Inicio" width="43" height="40">
+        </a>
+
+        <!-- Hamburguesa (solo en celular). data-bs-target debe coincidir con el id de abajo -->
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse" data-bs-target="#menuPrincipal"
+                aria-controls="menuPrincipal" aria-expanded="false"
+                aria-label="Abrir menú">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Menú que se esconde en celular -->
+        <div class="collapse navbar-collapse justify-content-end" id="menuPrincipal">
+            <div class="contenedor-botones-navegacion">
+                <a class="btn boton-navegacion" href="about.html">Sobre mi</a>
+                <a class="btn boton-navegacion" href="proyectos.html">Proyectos</a>
+                <a class="btn boton-navegacion" href="contacto.html">Contacto</a>
+                <a class="btn boton-navegacion" href="ixtlan.html">IXTLAN STEAMex</a>
+            </div>
+        </div>
+
+    </div>
+</nav>
+
+<!-- aqui van las secciones del portafolio -->
+
+
+<!-- ========== IXTLAN STEAMEX ========== -->
+<section class="ixtlan-hero">
+
+    <!-- 40%: texto -->
+    <div class="ixtlan-texto">
+        <div>
+            <h1>IXTLAN STEAMex</h1>
+            <p class="ixtlan-descripcion">Aquí va una descripción corta de Ixtlan STEAMex.</p>
+        </div>
+        <!-- Flecha que baja a la siguiente sección. Pon ese id en la sección que sigue -->
+        <a class="ixtlan-flecha" href="#ixtlan-contenido" aria-label="Ir al contenido">
+            <i class="fa-solid fa-arrow-down"></i>
+        </a>
+    </div>
+
+    <!-- 60%: carrusel con corte diagonal -->
+    <div class="ixtlan-visual">
+        <div id="carruselIxtlan" class="carousel slide carousel-fade"
+     data-bs-ride="carousel" aria-label="Fotos de Ixtlan STEAMex">
+
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carruselIxtlan" data-bs-slide-to="0"
+                class="active" aria-current="true" aria-label="Foto 1"></button>
+        <button type="button" data-bs-target="#carruselIxtlan" data-bs-slide-to="1" aria-label="Foto 2"></button>
+        <button type="button" data-bs-target="#carruselIxtlan" data-bs-slide-to="2" aria-label="Foto 3"></button>
+        <button type="button" data-bs-target="#carruselIxtlan" data-bs-slide-to="3" aria-label="Foto 4"></button>
+        <button type="button" data-bs-target="#carruselIxtlan" data-bs-slide-to="4" aria-label="Foto 5"></button>
+    </div>
+
+    <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="4000">
+            <img src="../assets/IXTLAN/carrusel/5E0A2C93-6949-4AC2-9D1E-3A626351A521 2.JPEG" alt="Ixtlan STEAMex, foto 1">
+        </div>
+        <div class="carousel-item" data-bs-interval="4000">
+            <img src="../assets/IXTLAN/carrusel/93507ba6-6f4a-400d-b86c-be291ea64913.JPG" alt="Ixtlan STEAMex, foto 2">
+        </div>
+        <div class="carousel-item" data-bs-interval="4000">
+            <img src="../assets/IXTLAN/carrusel/A3D6014F-ACC0-447C-ACAA-8D36CE07CEC5.JPG" alt="Ixtlan STEAMex, foto 3">
+        </div>
+        <div class="carousel-item" data-bs-interval="4000">
+            <img src="../assets/IXTLAN/carrusel/93507ba6-6f4a-400d-b86c-be291ea64913.JPG" alt="Ixtlan STEAMex, foto 4">
+        </div>
+        <div class="carousel-item" data-bs-interval="4000">
+            <img src="../assets/IXTLAN/carrusel/EE874A33-FB41-4C6B-B1F9-4F296A7172DB 3.JPEG" alt="Ixtlan STEAMex, foto 5">
+        </div>
+    </div>
+
+</div>
+    </div>
+
+</section>
+
+<!-- ========== HISTORIA: LÍNEA DEL TIEMPO ========== -->
+<!-- El id hace que la flecha de arriba baje hasta aquí -->
+<section id="ixtlan-contenido" class="ixtlan-historia">
+    <h2>Nuestra historia</h2>
+
+    <ol class="linea-tiempo">
+
+        <li class="hito">
+            <p class="hito-etiqueta">Origen</p>
+            <h3>¿De dónde somos?</h3>
+            <p class="hito-texto">[Ciudad, escuela o comunidad de donde viene el equipo.]</p>
+        </li>
+
+        <li class="hito">
+            <p class="hito-etiqueta">Nombre</p>
+            <h3>¿Qué significa Ixtlan STEAMex?</h3>
+            <p class="hito-texto">[Qué significa el nombre y qué representa cada parte.]</p>
+        </li>
+
+        <li class="hito">
+            <p class="hito-etiqueta">Fundación</p>
+            <h3>¿Por qué nació?</h3>
+            <p class="hito-texto">[Cuándo y por qué se formó el equipo.]</p>
+        </li>
+
+        <li class="hito">
+            <p class="hito-etiqueta">Temporada actual</p>
+            <h3>El robot de la temporada</h3>
+            <p class="hito-texto">[Nombre del robot, qué hace y cómo se construyó.]</p>
+        </li>
+
+        <li class="hito">
+            <p class="hito-etiqueta">Camino recorrido</p>
+            <h3>Logros</h3>
+            <p class="hito-texto">[Competencias, premios o reconocimientos.]</p>
+        </li>
+
+    </ol>
+</section>
+
+<!-- ========== ALIADOS Y PATROCINADORES ========== -->
+<section class="ixtlan-aliados">
+    <h2>Aliados y patrocinadores</h2>
+
+    <!-- Cada <li> es un logo. Reemplaza el texto por:
+         <img src="../assets/Aliados/nombre.png" alt="Nombre del aliado"> -->
+    <ul class="lista-aliados">
+        <li class="aliado">
+          <img src="/assets/IXTLAN/aliados/giga-removebg-preview.png">
+        </li>
+        <li class="aliado">
+          <img src="/assets/IXTLAN/aliados/haas-removebg-preview.png">
+        </li>
+        <li class="aliado">
+          <img src="/assets/IXTLAN/aliados/ixtlansteamex-removebg-preview.png">
+        </li>
+        <li class="aliado">
+          <img src="/assets/IXTLAN/aliados/opemsa-removebg-preview.png">
+        </li>
+        <li class="aliado">
+          <img src="/assets/IXTLAN/aliados/steamex-removebg-preview.png">
+        </li>
+        
+    </ul>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

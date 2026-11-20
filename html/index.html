@@ -1,0 +1,550 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alan Jair Cruz Arenas</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/estilos.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:opsz,wght@17..18,400..700&family=Sora:wght@100..800&display=swap" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/4d93aa050a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+          
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+<!-- LUCES DE SALIDA -->
+<div class="luces-salida" aria-hidden="true">
+    <div class="luces-salida-fila">
+        <span class="luz"></span>
+        <span class="luz"></span>
+        <span class="luz"></span>
+        <span class="luz"></span>
+        <span class="luz"></span>
+    </div>
+</div>
+
+<!-- NAVEGACIÓN -->
+<nav class="navbar navbar-expand-md barra-navegacion sticky-top">
+    <div class="container-fluid">
+
+        <a class="navbar-brand fw-bold" href="index.html">
+            <img src="../assets/logo_corregido-removebg-preview.png" alt="Inicio" width="43" height="40">
+        </a>
+
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse" data-bs-target="#menuPrincipal"
+                aria-controls="menuPrincipal" aria-expanded="false"
+                aria-label="Abrir menú">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="menuPrincipal">
+            <div class="contenedor-botones-navegacion">
+                <a class="btn boton-navegacion" href="#sobre-mi">Sobre mí</a>
+                <a class="btn boton-navegacion" href="#trayectoria">Trayectoria</a>
+                <a class="btn boton-navegacion" href="#proyectos">Proyectos</a>
+                <a class="btn boton-navegacion" href="#contacto">Contacto</a>
+                <a class="btn boton-navegacion" href="ixtlan.html">IXTLAN STEAMex</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- PRESENTACIÓN -->
+<section class="py-5 seccion-presentacion">
+    <div class="container-fluid px-4 px-lg-5">
+        <div class="row g-5">
+
+            <div class="col-lg-9 text-center text-lg-start">
+                <div class="panel-telemetria">
+
+                    <div class="panel-telemetria-encabezado">
+                        <span>Full Stack Java Jr.</span>
+                    </div>
+
+                    <h1>Alan Cruz</h1>
+                    <p class="frase-presentacion">
+                        Desarrollador apasionado por la tecnología, la robótica y la creación de soluciones innovadoras
+                    </p>
+
+                    <dl class="datos-telemetria">
+                        <div class="dato-telemetria dato-brillo"><dd>DEVELOPER</dd></div>
+                        <div class="dato-telemetria dato-brillo"><dd>ROBOTICS COACH</dd></div>
+                        <div class="dato-telemetria dato-brillo"><dd>TECH ENTHUSIAST</dd></div>
+                    </dl>
+
+                    <div class="botones-presentacion d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start">
+                        <a class="btn boton-ver-proyectos" href="#proyectos">
+                            Ver proyectos <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
+                        </a>
+                        <a class="btn boton-descargar-cv" href="../assets/CV_Alan_Cruz.pdf" download>
+                            <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i> Descargar CV
+                        </a>
+                    </div>
+
+                    
+                </div>
+            </div>
+
+            <div class="col-lg-3 text-center">
+                <div class="panel-telemetria ai-agent-container">
+                    <div class="panel-telemetria-encabezado">
+                        <span>AI_ASSISTANT // V1.0</span>
+                    </div>
+
+                    <div class="video-wrapper position-relative mt-3">
+                        <video autoplay loop muted playsinline class="w-100 rounded-4 shadow-lg">
+                            <source src="../assets/sinfondoix.mp4" type="video/mp4">
+                            Tu navegador no soporta el elemento de video.
+                        </video>
+
+                        <div class="hud-indicator">
+                            <span class="pulse-dot"></span> ONLINE
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+<div class="stack-tecnologias">
+                        <div class="stack-tecnologias-encabezado">
+                            <span>Stack tecnológico</span>
+                        </div>
+
+                        <div class="carrusel-tecnologias" aria-label="Tecnologías que manejo">
+                            <div class="carrusel-tecnologias-pista">
+                                <ul class="carrusel-tecnologias-grupo">
+                                    <li><i class="fa-brands fa-java"></i><span>Java</span></li>
+                                    <li><i class="fa-brands fa-python"></i><span>Python</span></li>
+                                    <li><i class="fa-brands fa-js"></i><span>JavaScript</span></li>
+                                    <li><i class="fa-brands fa-html5"></i><span>HTML5</span></li>
+                                    <li><i class="fa-brands fa-css3-alt"></i><span>CSS3</span></li>
+                                    <li><i class="fa-brands fa-bootstrap"></i><span>Bootstrap</span></li>
+                                    <li><i class="fa-brands fa-git-alt"></i><span>Git</span></li>
+                                    <li><i class="fa-brands fa-github"></i><span>GitHub</span></li>
+                                    <li><i class="fa-solid fa-microchip"></i><span>Arduino</span></li>
+                                    <li><i class="fa-solid fa-vial"></i><span>Jest</span></li>
+                                </ul>
+
+                                <ul class="carrusel-tecnologias-grupo" aria-hidden="true">
+                                    <li><i class="fa-brands fa-java"></i><span>Java</span></li>
+                                    <li><i class="fa-brands fa-python"></i><span>Python</span></li>
+                                    <li><i class="fa-brands fa-js"></i><span>JavaScript</span></li>
+                                    <li><i class="fa-brands fa-html5"></i><span>HTML5</span></li>
+                                    <li><i class="fa-brands fa-css3-alt"></i><span>CSS3</span></li>
+                                    <li><i class="fa-brands fa-bootstrap"></i><span>Bootstrap</span></li>
+                                    <li><i class="fa-brands fa-git-alt"></i><span>Git</span></li>
+                                    <li><i class="fa-brands fa-github"></i><span>GitHub</span></li>
+                                    <li><i class="fa-solid fa-microchip"></i><span>Arduino</span></li>
+                                    <li><i class="fa-solid fa-vial"></i><span>Jest</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+    </div>
+</section>
+
+<!-- PERFIL + CIRCUITO -->
+<section id="sobre-mi" class="driver-profile driver-combined">
+    <div class="container-fluid px-4 px-lg-5">
+
+        <div class="driver-profile-encabezado">
+            <span class="driver-kicker">DRIVER PROFILE // 001</span>
+            <span class="driver-status"><i></i> PERFIL ACTIVO</span>
+        </div>
+
+        <!-- FOTO A LA IZQUIERDA / CIRCUITO A LA DERECHA -->
+        <div class="row g-4 g-xl-5 align-items-center driver-track-layout">
+
+            <div class="col-12 col-md-4 col-xl-3 columna-foto-perfil">
+                <div class="contenedor-foto-perfil">
+                    <img src="../assets/ALAN_PORT-removebg-preview.png" alt="Fotografía de Alan Cruz">
+
+                    <img class="logo-fondo-foto"
+                         src="../assets/logo_corregido-removebg-preview.png"
+                         alt="" aria-hidden="true">
+
+                    <div class="marco-nombre-foto">
+                        <span class="esquina esquina-superior-izquierda"></span>
+                        <span class="esquina esquina-superior-derecha"></span>
+                        <span class="esquina esquina-inferior-izquierda"></span>
+                        <span class="esquina esquina-inferior-derecha"></span>
+                        <p class="nombre-sobre-foto">ALAN<br>CRUZ</p>
+                    </div>
+                </div>
+
+                <p class="foto-caption">ENGINEERING // SOFTWARE // ROBOTICS</p>
+            </div>
+
+            <div class="col-12 col-md-8 col-xl-9 driver-track-column">
+                <div id="trayectoria" class="race-compact">
+
+                    <div class="race-compact-heading">
+                        <div>
+                            <span class="driver-kicker">CAREER TRACK // 002</span>
+                            <h3>Mi trayectoria<span>.</span></h3>
+                        </div>
+
+                        <div class="race-circuit-data">
+                            <span>AUTÓDROMO HERMANOS RODRÍGUEZ</span>
+                            <strong>CIUDAD DE MÉXICO · MX</strong>
+                            <small>17 CURVAS / 4.304 KM</small>
+                        </div>
+                    </div>
+
+                    <div class="race-compact-grid">
+                        <div class="race-map-wrap">
+                            <div class="race-map-label">
+                                TRACK MAP <span>· SELECT A STAGE</span>
+                            </div>
+
+                            <svg class="race-map" viewBox="0 0 800 430"
+                                 role="group"
+                                 aria-label="Recorrido interactivo de trayectoria inspirado en el Autódromo Hermanos Rodríguez">
+
+                                <path class="race-track-shadow"
+                                      fill="none" stroke="#00d2be"
+                                      stroke-opacity=".15" stroke-width="22"
+                                      stroke-linecap="round" stroke-linejoin="round"
+                                      d="M105 85 L260 55 L505 55 Q620 55 655 115 L690 180 Q710 220 665 245 L575 280 Q535 295 560 330 L635 365 Q670 385 640 405 Q610 425 565 400 L465 345 Q420 325 390 355 L345 400 Q320 425 290 400 L245 355 Q215 330 185 350 L125 390 Q85 410 65 375 Q45 340 75 305 L125 245 Q150 215 125 185 L75 130 Q55 100 80 88 Z"/>
+
+                                <path class="race-track"
+                                      fill="none" stroke="#c8ccce"
+                                      stroke-width="10" stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                      d="M105 85 L260 55 L505 55 Q620 55 655 115 L690 180 Q710 220 665 245 L575 280 Q535 295 560 330 L635 365 Q670 385 640 405 Q610 425 565 400 L465 345 Q420 325 390 355 L345 400 Q320 425 290 400 L245 355 Q215 330 185 350 L125 390 Q85 410 65 375 Q45 340 75 305 L125 245 Q150 215 125 185 L75 130 Q55 100 80 88 Z"/>
+
+                                <path class="race-start-line" fill="none"
+                                      stroke="#00d2be" stroke-width="4"
+                                      d="M250 48 L250 65"/>
+
+                                <text x="265" y="39" class="race-svg-label">START / FINISH</text>
+                                <text x="540" y="315" class="race-svg-label race-foro">FORO SOL</text>
+
+                                <g class="race-marker is-active" data-stage="0"
+                                   role="button" tabindex="0"
+                                   aria-label="Etapa 1: Formación técnica"
+                                   aria-pressed="true">
+                                    <circle cx="260" cy="55" r="15"/>
+                                    <text x="260" y="59">01</text>
+                                </g>
+
+                                <g class="race-marker" data-stage="1"
+                                   role="button" tabindex="0"
+                                   aria-label="Etapa 2: Robótica e ingeniería"
+                                   aria-pressed="false">
+                                    <circle cx="680" cy="160" r="15"/>
+                                    <text x="680" y="164">02</text>
+                                </g>
+
+                                <g class="race-marker" data-stage="2"
+                                   role="button" tabindex="0"
+                                   aria-label="Etapa 3: FIRST y mentoría"
+                                   aria-pressed="false">
+                                    <circle cx="610" cy="390" r="15"/>
+                                    <text x="610" y="394">03</text>
+                                </g>
+
+                                <g class="race-marker" data-stage="3"
+                                   role="button" tabindex="0"
+                                   aria-label="Etapa 4: Innovación y proyectos"
+                                   aria-pressed="false">
+                                    <circle cx="190" cy="350" r="15"/>
+                                    <text x="190" y="354">04</text>
+                                </g>
+
+                                <g class="race-marker" data-stage="4"
+                                   role="button" tabindex="0"
+                                   aria-label="Etapa 5: Desarrollo de software"
+                                   aria-pressed="false">
+                                    <circle cx="75" cy="130" r="15"/>
+                                    <text x="75" y="134">05</text>
+                                </g>
+                            </svg>
+
+                            <div class="race-map-legend">
+                                <span><i class="legend-dot"></i> ETAPA SELECCIONADA</span>
+                                <span><i class="legend-line"></i> RECORRIDO</span>
+                            </div>
+                        </div>
+
+                        <article class="race-detail" aria-live="polite">
+                            <div class="race-detail-top">
+                                <span id="race-sector">SECTOR 01 / 05</span>
+                                <span class="race-detail-flag">CAREER LOG</span>
+                            </div>
+
+                            <p id="race-period" class="race-period">2016 — 2019</p>
+                            <h4 id="race-title">Primeros pasos en ingeniería</h4>
+
+                            <p id="race-description">
+                                Formación en Sistemas de Control Eléctrico en el IPN,
+                                donde comenzó mi acercamiento a los sistemas,
+                                la electrónica y la resolución técnica de problemas.
+                            </p>
+
+                            <div class="race-detail-divider"></div>
+                            <span class="race-detail-label">ÁREA</span>
+
+                            <p id="race-area" class="race-area">
+                                Formación técnica · Electrónica · Sistemas
+                            </p>
+
+                            <div class="race-controls">
+                                <button type="button" id="race-prev" aria-label="Etapa anterior">
+                                    <i class="fa-solid fa-arrow-left"></i>
+                                </button>
+
+                                <div class="race-progress">
+                                    <span id="race-progress-fill"></span>
+                                </div>
+
+                                <button type="button" id="race-next" aria-label="Etapa siguiente">
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TEXTO PROFESIONAL DEBAJO DE FOTO Y CIRCUITO -->
+        <div class="driver-bio-below">
+            <p class="etiqueta-seccion">01 / ABOUT ME</p>
+            <h2 class="driver-titulo">Ingeniería, robótica y código<span>.</span></h2>
+
+            <div class="driver-bio-grid">
+                <p class="texto-sobre-mi">
+                    Soy estudiante de Ingeniería en Sistemas y Desarrollador
+                    Full Stack Java Jr. Me interesa construir soluciones de
+                    software, especialmente desde el backend, y aplicar el
+                    análisis y el pensamiento de ingeniería para resolver problemas.
+                </p>
+
+                <p class="texto-sobre-mi">
+                    Mi experiencia como coach y mentor de robótica me ha
+                    permitido trabajar con equipos, acompañar procesos de
+                    diseño y desarrollo, y convertir ideas en proyectos
+                    tecnológicos. Disfruto conectar la parte técnica con la
+                    organización y el trabajo colaborativo.
+                </p>
+            </div>
+
+            <div class="driver-datos">
+                <div class="driver-dato">
+                    <span>FOCUS</span>
+                    <strong>Software development</strong>
+                </div>
+                <div class="driver-dato">
+                    <span>BACKGROUND</span>
+                    <strong>Robotics &amp; engineering</strong>
+                </div>
+                <div class="driver-dato">
+                    <span>NEXT GOAL</span>
+                    <strong>Backend &amp; data analysis</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PROYECTOS -->
+<section id="proyectos" class="seccion-proyectos">
+    <div class="proyectos-fila">
+        <div class="proyectos-galeria">
+            <div class="galeria-proyectos">
+
+                <article class="tarjeta-proyecto tarjeta-proyecto-activa">
+                    <img src="../assets/Proyectos/AJOLOTEYGRULLA/ajolote_grulla_logo_vectorial.pdf.png"
+                         alt="Proyecto Ajolote y Grulla">
+                    <span class="anio-proyecto">2026</span>
+                </article>
+
+                <article class="tarjeta-proyecto">
+                    <img src="../assets/Proyectos/MARS/Marslogo.jpeg" alt="Proyecto MARS">
+                    <span class="anio-proyecto">2026</span>
+                </article>
+
+                <article class="tarjeta-proyecto">
+                    <img src="../assets/Proyectos/Romboapp/Rumbologo.jpeg" alt="Proyecto ReRuta">
+                    <span class="anio-proyecto">2025</span>
+                </article>
+
+                <article class="tarjeta-proyecto">
+                    <img src="../assets/Proyectos/AZTLANVITA/aztlan vita logo.png"
+                         alt="Proyecto Aztlan Vita F">
+                    <span class="anio-proyecto">2026</span>
+                </article>
+
+                <article class="tarjeta-proyecto">
+                    <img class="img-completa"
+                         src="../assets/Proyectos/NASASPACEAPPS/images (1).png"
+                         alt="Proyecto NASA Space Apps">
+                    <span class="anio-proyecto">2025</span>
+                </article>
+
+                <article class="tarjeta-proyecto">
+                    <img src="../assets/Proyectos/NASASPACEAPPS/images (1).png"
+                         alt="Proyecto NASA Space Apps">
+                    <span class="anio-proyecto">2025</span>
+                </article>
+
+                <article class="tarjeta-proyecto">
+                    <img src="../assets/Proyectos/NASASPACEAPPS/images (1).png"
+                         alt="Proyecto NASA Space Apps">
+                    <span class="anio-proyecto">2025</span>
+                </article>
+            </div>
+        </div>
+
+        <div class="proyectos-texto">
+            <h1>Proyectos</h1>
+        </div>
+    </div>
+</section>
+
+<!-- DESCRIPCIÓN DINÁMICA DE PROYECTOS -->
+<section id="descripcion-proyectos" class="descripcion-proyectos">
+    <div class="container-fluid px-4 px-lg-5">
+        <div class="row g-5 align-items-center">
+
+            <div class="col-lg-4">
+                <span id="proyecto-anio" class="proyecto-anio"></span>
+                <h2 id="proyecto-titulo"></h2>
+                <p id="proyecto-categoria"></p>
+            </div>
+
+            <div class="col-lg-8">
+                <p id="proyecto-descripcion"></p>
+
+                <div class="proyecto-participacion">
+                    <h5>Mi participación</h5>
+                    <p id="proyecto-rol"></p>
+                </div>
+
+                <div id="proyecto-tecnologias" class="proyecto-tecnologias"></div>
+
+                <div class="proyecto-botones">
+                    <a id="proyecto-repo" href="#" target="_blank"
+                       rel="noopener noreferrer" class="btn-proyecto btn-repo">
+                        Ver repositorio
+                    </a>
+
+                    <a id="proyecto-demo" href="#" target="_blank"
+                       rel="noopener noreferrer" class="btn-proyecto btn-demo">
+                        Ver proyecto
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto" class="seccion-contacto">
+    <div class="container-fluid px-4 px-lg-5">
+        <div class="contacto-contenido">
+
+            <span class="etiqueta-contacto">CONTACTO // 01</span>
+            <h2>¿Trabajamos juntos?</h2>
+
+            <p class="texto-contacto">
+                Estoy abierto a nuevas oportunidades profesionales,
+                proyectos tecnológicos y colaboraciones.
+                Si tienes una propuesta o simplemente quieres conversar,
+                me gustaría conocerte.
+            </p>
+
+            <div class="contacto-botones">
+                <a href="https://wa.me/525514128112"
+                   target="_blank" rel="noopener noreferrer"
+                   class="boton-contacto boton-contacto-principal">
+                    Hablemos <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+
+                <a href="https://www.linkedin.com/in/alan-jair-cruz-arenas/"
+                   target="_blank" rel="noopener noreferrer"
+                   class="boton-contacto boton-contacto-secundario">
+                    LinkedIn <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+
+                <a href="https://github.com/Alan-JC"
+                   target="_blank" rel="noopener noreferrer"
+                   class="boton-contacto boton-contacto-secundario">
+                    GitHub <i class="fa-brands fa-github"></i>
+                </a>
+            </div>
+
+            <div class="contacto-disponibilidad">
+                <span class="indicador-disponibilidad"></span>
+                ABIERTO A NUEVAS OPORTUNIDADES
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="pie-pagina mt-auto">
+    <div class="redes-sociales">
+        <a href="https://www.linkedin.com/in/alan-jair-cruz-arenas/"
+           aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+
+        <a href="https://github.com/Alan-JC"
+           aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-github"></i>
+        </a>
+
+        <a href="https://www.instagram.com/j.airx_?"
+           aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+
+        <a href="https://www.facebook.com/share/1D5b5hrGmt/?mibextid=wwXIfr"
+           aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-facebook-f"></i>
+        </a>
+
+        <a href="https://wa.me/525514128112"
+           aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+
+        <a href="https://open.spotify.com/user/jairjh?si=fuZmnBN-TiOKAN3buFijuA&utm_source=copy-link"
+           aria-label="Spotify" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-spotify"></i>
+        </a>
+
+        <a href="https://www.tiktok.com/@j.airx_?_r=1&_t=ZS-9BE2heeWlnu"
+           aria-label="TikTok" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-tiktok"></i>
+        </a>
+    </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/proyectos.js"></script>
+<script src="../js/trayectoria.js"></script>
+
+
+</body>
+</html>
