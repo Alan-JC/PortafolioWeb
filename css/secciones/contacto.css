@@ -1,0 +1,108 @@
+/* ========== CONTACTO ========== */
+
+.seccion-contacto {
+    background-color: #121214;
+    color: #ffffff;
+    padding: 110px 0;
+    border-top: 3px solid #00D7C3;
+}
+
+.contacto-contenido {
+    max-width: 850px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.etiqueta-contacto {
+    color: #00D7C3;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.contacto-contenido h2 {
+    font-family: 'Sora', sans-serif;
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    font-weight: 700;
+    margin: 25px 0;
+}
+
+.texto-contacto {
+    color: #b5b5b5;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.contacto-botones {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 40px;
+}
+
+.boton-contacto {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 24px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 700;
+    transition: 0.3s ease;
+}
+
+.boton-contacto-principal {
+    background: #00D7C3;
+    color: #121214;
+    border: 1px solid #00D7C3;
+}
+
+.boton-contacto-principal:hover {
+    background: transparent;
+    color: #00D7C3;
+}
+
+.boton-contacto-secundario {
+    border: 1px solid #555555;
+    color: #ffffff;
+}
+
+.boton-contacto-secundario:hover {
+    border-color: #00D7C3;
+    color: #00D7C3;
+}
+
+.contacto-disponibilidad {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 45px;
+    color: #999999;
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+}
+
+.indicador-disponibilidad {
+    width: 8px;
+    height: 8px;
+    background: #00D7C3;
+    border-radius: 50%;
+}
+
+@media (max-width: 576px) {
+    .seccion-contacto {
+        padding: 75px 0;
+    }
+
+    .contacto-botones {
+        flex-direction: column;
+    }
+
+    .boton-contacto {
+        justify-content: center;
+    }
+}

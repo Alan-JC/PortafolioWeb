@@ -1,0 +1,485 @@
+/* ========== SECCIÓN DE INICIO ========== */
+
+/* position: relative para poder colocar el fondo animado con
+   position: absolute dentro de la sección. overflow: hidden recorta lo
+   que se sale por los lados mientras las franjas se deslizan */
+.seccion-presentacion {
+  position: relative;
+  overflow: hidden;
+  /* Ocupa al menos toda la pantalla menos la barra (unos 4.5rem), así
+     los proyectos quedan abajo del primer vistazo */
+  min-height: calc(100vh - 4.5rem);
+  min-height: calc(100dvh - 4.5rem);
+  display: flex;
+  align-items: center;
+}
+
+
+/* Nombre principal, lo más grande de la página. El color blanco destaca
+   sobre el fondo negro */
+.seccion-presentacion h1 {
+  color: var(--plata);
+  font-weight: 700;
+  /* Responsivo: entre 2.5rem en celular y 6.5rem en pantallas grandes.
+     7vw es el 7% del ancho de la ventana */
+  font-size: clamp(2.5rem, 7vw, 6.5rem);
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+/* Frase corta debajo del nombre */
+.frase-presentacion {
+  color: var(--plata);
+  /* Letras separadas, se ve más técnico */
+  letter-spacing: 0.15em;
+  /* Responsivo: entre 0.75rem y 1.1rem */
+  font-size: clamp(0.75rem, 0.65rem + 0.5vw, 1.1rem);
+  margin-bottom: 0;
+}
+
+/* Contenedor del nombre, la frase y los datos. No lleva borde ni fondo,
+   solo da espacio arriba y abajo */
+.panel-telemetria {
+  display: block;
+  max-width: 100%;
+  padding: clamp(1rem, 2.5vw, 2rem) 0;
+}
+
+/* Franja de arriba del panel: texto a la izquierda y estado a la derecha */
+.panel-telemetria-encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  color: var(--azul-rusell);
+  font-size: 1rem;
+  text-transform: uppercase;
+  /* Letras muy separadas, se ve más técnico */
+  letter-spacing: 0.2em;
+  /* Línea fina que separa la franja del nombre */
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(200, 204, 206, 0.25);
+}
+
+/* Cuando las columnas se apilan (menos de 992px), la franja de arriba se
+   centra, igual que el nombre y la frase. Va justo debajo de la regla
+   de arriba porque las dos tienen la misma fuerza y gana la que va después */
+@media (max-width: 991.98px) {
+  .panel-telemetria-encabezado {
+    justify-content: center;
+  }
+}
+
+/* Fila de datos: tres columnas */
+.datos-telemetria {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 1.5rem 0 0;
+}
+
+/* Cada dato, con una línea vertical que lo separa del anterior */
+.dato-telemetria {
+  padding: 0 1.25rem;
+  text-align: center;
+  /* Centra el texto en horizontal y en vertical dentro de su columna */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Los tres llevan el mismo espacio a los lados para quedar centrados */
+.dato-telemetria:first-child {
+  padding-left: 1.25rem;
+}
+
+.dato-telemetria + .dato-telemetria {
+  border-left: 1px solid var(--azul-rusell);
+}
+
+/* Cada dato se ilumina al pasar el mouse. Solo con mouse, para que en
+   celular no se quede iluminado */
+.dato-brillo dd {
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+@media (hover: hover) {
+  .dato-brillo:hover dd {
+    color: var(--azul-rusell);
+    text-shadow: 0 0 12px rgba(0, 240, 255, 0.6);
+  }
+}
+
+/* Etiqueta: azul claro, chica y en mayúsculas */
+.datos-telemetria dt {
+  margin: 0 0 0.35rem;
+  color: var(--azul-rusell);
+  font-size: 0.7rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+/* Valor: plata, un poco más grande y en semi-negritas */
+.datos-telemetria dd {
+  margin: 0;
+  color: var(--plata);
+  font-size: clamp(0.85rem, 0.7rem + 0.4vw, 1.05rem);
+  font-weight: 600;
+}
+
+/* En celular los datos van uno debajo del otro, y la línea que los
+   separa pasa de vertical a horizontal */
+@media (max-width: 767.98px) {
+  .datos-telemetria {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .dato-telemetria,
+  .dato-telemetria:first-child {
+    padding: 0;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .dato-telemetria + .dato-telemetria {
+    border-left: 0;
+    border-top: 1px solid rgba(200, 204, 206, 0.25);
+    padding-top: 1rem;
+  }
+}
+
+/* ---------- Botones del inicio ---------- */
+
+.botones-presentacion {
+  margin-top: 1.75rem;
+}
+
+/* Lo que comparten los dos botones: esquinas rectas, como los botones
+   del menú, y el ícono alineado con el texto */
+.boton-ver-proyectos,
+.boton-descargar-cv {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+/* Botón principal: relleno verde con texto oscuro */
+.boton-ver-proyectos {
+  background-color: var(--verde-petronas);
+  border: 1px solid var(--verde-petronas);
+  color: var(--negro);
+}
+
+/* Al pasar el mouse o llegar con el teclado, se vacía y queda solo el borde */
+.boton-ver-proyectos:hover,
+.boton-ver-proyectos:focus-visible {
+  background-color: transparent;
+  border-color: var(--verde-petronas);
+  color: var(--verde-petronas);
+}
+
+/* Botón secundario: solo borde, con el fondo transparente */
+.boton-descargar-cv {
+  background-color: transparent;
+  border: 1px solid rgba(200, 204, 206, 0.4);
+  color: var(--blanco);
+}
+
+.boton-descargar-cv:hover,
+.boton-descargar-cv:focus-visible {
+  background-color: transparent;
+  border-color: var(--azul-rusell);
+  color: var(--azul-rusell);
+}
+
+/* Al pulsar "Ver proyectos" el scroll baja suave. Se desactiva si la
+   persona pidió reducir el movimiento */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* La barra fija no tapa el título de la sección al llegar a ella */
+#proyectos {
+  scroll-margin-top: 4.5rem;
+}
+
+/* ---------- Stack tecnológico ---------- */
+
+/* Bloque con una línea fina arriba que lo separa de los botones */
+.stack-tecnologias {
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(200, 204, 206, 0.25);
+}
+
+/* Título a la izquierda y ayuda a la derecha */
+.stack-tecnologias-encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  color: var(--plata);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+/* La ayuda va en verde y sin mayúsculas */
+.stack-tecnologias-ayuda {
+  color: var(--verde-petronas);
+  text-transform: none;
+  letter-spacing: 0.05em;
+}
+
+/* En pantallas táctiles no hay cursor, así que la ayuda no se muestra */
+@media (hover: none) {
+  .stack-tecnologias-ayuda {
+    display: none;
+  }
+}
+
+/* Cuando el texto va centrado (menos de 992px), el título también */
+@media (max-width: 991.98px) {
+  .stack-tecnologias-encabezado {
+    justify-content: center;
+  }
+}
+
+/* ---------- Carrusel de tecnologías ---------- */
+
+/* Ventana por la que se ve pasar la lista. overflow: hidden esconde lo
+   que se sale por los lados. La máscara desvanece los bordes izquierdo
+   y derecho (8% de cada lado). La línea -webkit- es para Safari */
+.carrusel-tecnologias {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+
+/* Fila que contiene los dos grupos, uno al lado del otro */
+.carrusel-tecnologias-pista {
+  display: flex;
+}
+
+/* Cada grupo mide como mínimo todo el ancho de la ventana (min-width: 100%),
+   por eso nunca queda un hueco. flex-shrink: 0 evita que se encoja, y
+   justify-content reparte los íconos por todo el ancho. La animación lo
+   mueve hacia la izquierda exactamente su propio ancho (-100%): al terminar,
+   el segundo grupo está donde estaba el primero, y como son idénticos, el
+   reinicio no se nota */
+.carrusel-tecnologias-grupo {
+  display: flex;
+  flex-shrink: 0;
+  min-width: 100%;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  animation: desplazar-tecnologias 25s linear infinite;
+}
+
+@keyframes desplazar-tecnologias {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-100%); }
+}
+
+/* Cada tecnología: el ícono arriba y el nombre debajo. El tamaño del
+   ícono y el color van aquí, en el li, y no en el <i>: el kit de Font
+   Awesome cambia el <i> por un <svg>, y el svg hereda el tamaño y el
+   color de su contenedor */
+.carrusel-tecnologias-grupo li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0 1.5rem;
+  font-size: 3rem;
+  line-height: 1;
+  color: var(--plata);
+  opacity: 0.6;
+  transition: color 0.25s ease, opacity 0.25s ease;
+}
+
+/* Nombre debajo del ícono. Su tamaño se define aparte porque el li usa
+   3rem para el ícono */
+.carrusel-tecnologias-grupo li span {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  line-height: 1.2;
+}
+
+/* Solo con mouse: al pasar encima, el carrusel se pausa y la tecnología
+   se ilumina. En celular no se pausa, para que no se quede detenido al
+   tocarlo */
+@media (hover: hover) {
+  .carrusel-tecnologias:hover .carrusel-tecnologias-grupo {
+    animation-play-state: paused;
+  }
+
+  .carrusel-tecnologias-grupo li:hover {
+    color: var(--azul-kimmi);
+    opacity: 1;
+  }
+}
+
+/* Con "reducir movimiento" no se desplaza: se muestra un solo grupo
+   quieto y se oculta la copia */
+@media (prefers-reduced-motion: reduce) {
+  .carrusel-tecnologias-grupo {
+    animation: none;
+    flex-wrap: wrap;
+    row-gap: 1rem;
+  }
+
+  .carrusel-tecnologias-grupo[aria-hidden="true"] {
+    display: none;
+  }
+}
+
+/* ========== FOTO DE PERFIL ========== */
+/* Contenedor de la foto de perfil. Por defecto (celular y tablet) es
+   vertical */
+.contenedor-foto-perfil {
+  position: relative;
+  overflow: hidden;
+  /* Proporción vertical de 5 de ancho por 7 de alto, parecida a la de la
+     foto original, así se ve completa y casi no se recorta */
+  aspect-ratio: 5 / 7;
+  /* Solo la esquina de abajo a la derecha es redonda */
+  border-radius: 0 0 2rem 0;
+  /* Fondo que se ve en el espacio donde no hay foto. Los colores imitan
+     el fondo de la foto: negro arriba y verde azulado abajo. Ajústalos
+     a ojo si se nota el corte */
+  background: linear-gradient(180deg, #020808 0%, #0B2A28 30%, #015a5d 60%, #026c6a 100%);
+}
+
+/* En vertical la foto llena toda la tarjeta */
+.contenedor-foto-perfil img {
+  width: 100%;
+  height: 100%;
+  /* cover llena la forma sin deformar la foto. object-position mantiene
+     la parte de arriba, donde está la cara */
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+/* En pantallas grandes (992px o más) la tarjeta cambia de forma */
+@media (min-width: 992px) {
+  .contenedor-foto-perfil {
+    /* 1 / 1 es un cuadrado. Si la quieres más ancha y baja, usa 4 / 3;
+       más alta, 4 / 5 */
+    aspect-ratio: 1 / 1;
+  }
+
+  .contenedor-foto-perfil img {
+    /* La foto toma la altura de la tarjeta y su ancho se calcula solo,
+       sin deformarse */
+    width: auto;
+    height: 100%;
+    /* contain muestra la foto entera, sin recortar nada */
+    object-fit: contain;
+    /* Empuja la foto a la derecha, el nombre queda a la izquierda */
+    margin-left: auto;
+    /* Desvanece el borde izquierdo de la foto para que se mezcle con el
+       fondo. La primera línea es para Safari */
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 25%);
+    mask-image: linear-gradient(to right, transparent 0%, #000 25%);
+  }
+}
+
+/* ========== NOMBRE SOBRE LA FOTO ========== */
+
+/* Convierte la columna en "contenedor". Gracias a esto, las unidades cqw
+   (1% del ancho del contenedor) se calculan con el ancho de la foto y no
+   con el de la pantalla */
+.columna-foto-perfil {
+  container-type: inline-size;
+}
+
+/* Marco del nombre, pegado arriba a la izquierda de la tarjeta */
+.marco-nombre-foto {
+  --tamano-esquina: 1.5rem;
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  padding: 1.25rem;
+  z-index: 2;
+}
+
+/* Estilos que comparten las cuatro esquinas. Cada una es un cuadrito con
+   borde, y a cada una le quito dos lados para que quede solo una "L" */
+.esquina {
+  position: absolute;
+  width: var(--tamano-esquina);
+  height: var(--tamano-esquina);
+  border: 2px solid var(--blanco);
+}
+
+.esquina-superior-izquierda {
+  top: 0;
+  left: 0;
+  border-right: 0;
+  border-bottom: 0;
+}
+
+.esquina-superior-derecha {
+  top: 0;
+  right: 0;
+  border-left: 0;
+  border-bottom: 0;
+}
+
+.esquina-inferior-izquierda {
+  bottom: 0;
+  left: 0;
+  border-right: 0;
+  border-top: 0;
+}
+
+.esquina-inferior-derecha {
+  bottom: 0;
+  right: 0;
+  border-left: 0;
+  border-top: 0;
+}
+
+/* Nombre sobre la foto: 7% del ancho de la tarjeta, entre 1.25rem
+   y 2rem */
+.nombre-sobre-foto {
+  color: var(--blanco);
+  font-weight: 700;
+  font-size: clamp(1.25rem, 7cqw, 2rem);
+  line-height: 1.05;
+  margin: 0;
+}
+
+/* ============ CARRUSEL DE PROYECTOS CHICO ============ */
+
+.proyectos-fila {
+  display: flex;
+  gap: 0.5rem;
+  padding: 3rem 1.5rem;
+}
+
+.proyectos-galeria {
+  flex: 8;
+  min-width: 0;
+}
+
+.proyectos-texto {
+  flex: 2;
+  align-self: center;
+}

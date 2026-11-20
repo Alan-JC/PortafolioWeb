@@ -1,0 +1,19 @@
+/* ========== AJUSTE DE ALTURA DEL CARRUSEL DE PROYECTOS ========== */
+.proyectos-fila {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.galeria-proyectos {
+  height: clamp(250px, 42vh, 390px);
+}
+
+@media (max-width: 767.98px) {
+  .galeria-proyectos {
+    height: clamp(210px, 32vh, 290px);
+  }
+
+  .proyectos-fila {
+    padding: 1.25rem 1rem;
+  }
+}

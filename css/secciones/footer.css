@@ -1,0 +1,49 @@
+/* ========== FOOTER ========== */
+/* Pie de página: línea fina arriba y fondo oscuro semitransparente,
+   para que se vea la fibra de carbono detrás */
+.pie-pagina {
+  padding: 1.5rem 1rem;
+  border-top: 1px solid rgba(200, 204, 206, 0.25);
+  background-color: rgba(64, 64, 73, 0.6);
+}
+
+/* Fila de íconos: centrada y con espacio entre ellos.
+   flex-wrap hace que bajen de línea en celular en lugar de desbordarse */
+.redes-sociales {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+/* Estado normal: plata y un poco apagado */
+.redes-sociales a {
+  color: var(--plata);
+  font-size: 1.4rem;
+  opacity: 0.7;
+  /* El cambio al pasar el mouse es suave, no de golpe */
+  transition: color 0.25s ease, opacity 0.25s ease,
+              text-shadow 0.25s ease, transform 0.25s ease;
+}
+
+/* Al pasar el mouse o llegar con el teclado (Tab): se ilumina en verde
+   con dos halos, uno cerca y otro más difuso, y sube un poquito */
+.redes-sociales a:hover,
+.redes-sociales a:focus-visible {
+  color: var(--verde-petronas);
+  opacity: 1;
+  text-shadow:
+    0 0 8px rgba(0, 210, 190, 0.8),
+    0 0 20px rgba(0, 210, 190, 0.5);
+  transform: translateY(-4px);
+  /* Quita el contorno azul por defecto, el brillo ya indica el foco */
+  outline: none;
+}
+
+/* Si la persona redujo el movimiento, no sube; solo cambia de color */
+@media (prefers-reduced-motion: reduce) {
+  .redes-sociales a:hover,
+  .redes-sociales a:focus-visible {
+    transform: none;
+  }
+}

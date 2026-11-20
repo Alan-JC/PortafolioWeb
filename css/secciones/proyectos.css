@@ -1,0 +1,132 @@
+/* ========== SECCIÓN DE PROYECTOS ========== */
+/* Contenedor de las tarjetas: las pone en fila con un espacio entre ellas.
+   La altura se calcula con vh (1vh es el 1% de la altura de la pantalla),
+   así la galería ocupa casi toda la pantalla */
+.galeria-proyectos {
+  display: flex;
+  gap: 1rem;
+  height: 70vh;
+}
+
+/* Cada tarjeta cerrada. flex: 1 hace que todas compartan el espacio
+   por igual; la abierta va a pedir más con un número mayor (abajo) */
+.tarjeta-proyecto {
+  position: relative;
+  /* overflow: hidden recorta la foto para que respete la esquina redondeada */
+  overflow: hidden;
+  flex: 1;
+  /* Orden de las esquinas: arriba-izquierda, arriba-derecha,
+     abajo-derecha, abajo-izquierda. Solo la de abajo a la derecha es redonda */
+  border-radius: 0 0 4rem 0;
+  cursor: pointer;
+  /* Cuando cambie el flex, el ancho se anima en medio segundo en lugar
+     de saltar de golpe */
+  transition: flex 0.5s ease;
+}
+
+/* La tarjeta abierta pide 8 partes del espacio contra 1 de las demás,
+   por eso se ve mucho más ancha */
+.tarjeta-proyecto-activa {
+  flex: 8;
+}
+
+/* La foto llena toda la tarjeta. object-fit: cover la recorta en lugar
+   de deformarla */
+.tarjeta-proyecto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  /* Las tarjetas cerradas se ven oscurecidas */
+  filter: brightness(0.45);
+  transition: filter 0.5s ease;
+}
+
+/* La tarjeta abierta muestra la foto con su brillo normal */
+.tarjeta-proyecto-activa img {
+  filter: brightness(1);
+}
+
+/* Año en vertical sobre la foto */
+.anio-proyecto {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  /* writing-mode pone el texto en vertical, y rotate(180deg) lo voltea
+     para que se lea de abajo hacia arriba, como en la referencia */
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  /* Responsivo: crece con la pantalla pero con mínimo y máximo */
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--blanco);
+  transition: color 0.5s ease;
+}
+
+/* El año de la tarjeta abierta va en verde Petronas */
+.tarjeta-proyecto-activa .anio-proyecto {
+  color: var(--verde-petronas);
+}
+
+/* ========== EFECTO AL PASAR EL MOUSE POR LA FOTO ========== */
+
+/* isolation crea un nivel propio de apilamiento: la capa de color queda
+   detrás de la foto pero encima del fondo normal */
+.contenedor-foto-perfil {
+  isolation: isolate;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Capa con el degradado vivo. Un degradado no se anima de un color a otro,
+   así que va transparente y aparece con opacity */
+.contenedor-foto-perfil::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, #021a1c 0%, #036f78 30%, #00b4c2 60%, var(--azul-rusell) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+/* La foto crece desde abajo para no despegarse del borde inferior */
+.contenedor-foto-perfil img {
+  transform-origin: 70% 100%;
+  transition: transform 0.4s ease;
+}
+
+@media (hover: hover) {
+  .contenedor-foto-perfil:hover {
+    transform: scale(1.04);
+    box-shadow: 0 0 40px rgba(0, 240, 255, 0.35);
+  }
+
+  .contenedor-foto-perfil:hover::before {
+    opacity: 1;
+  }
+
+  .contenedor-foto-perfil:hover img {
+    transform: scale(1.06);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contenedor-foto-perfil:hover,
+  .contenedor-foto-perfil:hover img {
+    transform: none;
+  }
+}
+
+/* ========== PROYECTOS: FONDO Y AJUSTE DE IMAGEN ========== */
+
+.seccion-proyectos {
+  background-color: #2f3035;
+}
+
+/* Muestra la imagen entera, sin recortar. El azul rellena el espacio
+   sobrante con el mismo color del fondo del logo de NASA */
+.tarjeta-proyecto img.img-completa {
+  object-fit: contain;
+  background-color: #09103c;
+}
