@@ -7,31 +7,31 @@ document.addEventListener("DOMContentLoaded", () => {
     // Información de cada etapa de mi trayectoria
     const etapas = [
         {
-            periodo: "2016 — 2019",
+            periodo: "año-año",
             titulo: "Primeros pasos en ingeniería",
             descripcion: "Formación en Sistemas de Control Eléctrico en el IPN, donde comenzó mi acercamiento a los sistemas, la electrónica y la resolución técnica de problemas.",
             area: "Formación técnica · Electrónica · Sistemas"
         },
         {
-            periodo: "2021 — 2022",
+            periodo: "año-año",
             titulo: "Exploración de la robótica",
             descripcion: "Estudios de Ingeniería en Robótica en la Universidad de Ecatepec. Una etapa que fortaleció mi interés por integrar hardware, programación y diseño para construir soluciones.",
             area: "Robótica · Diseño · Ingeniería"
         },
         {
-            periodo: "2024 — ACTUALIDAD",
+            periodo: "año-año",
             titulo: "FIRST y mentoría de equipos",
             descripcion: "Como coach y mentor de equipos de robótica, acompaño a jóvenes en procesos de ingeniería, diseño, estrategia y trabajo colaborativo dentro de FIRST Tech Challenge.",
             area: "Mentoría · Coordinación · Ingeniería"
         },
         {
-            periodo: "2025 — 2026",
+            periodo: "año-año",
             titulo: "Innovación y proyectos tecnológicos",
             descripcion: "Participación en retos y proyectos como NASA Space Apps, Aztlan Vita F y TERRA-6, explorando soluciones que conectan tecnología, investigación y trabajo multidisciplinario.",
             area: "Innovación · Prototipado · Trabajo en equipo"
         },
         {
-            periodo: "2026 — ACTUALIDAD",
+            periodo: "año-año",
             titulo: "Desarrollo de software",
             descripcion: "Formación en Ingeniería en Sistemas y en el programa Full Stack Java de Generation México. Actualmente enfoco mi crecimiento en desarrollo de software, backend y análisis de datos.",
             area: "Java · Desarrollo web · Backend · Datos"
