@@ -85,7 +85,7 @@
                         <a class="btn boton-ver-proyectos" href="#proyectos">
                             Ver proyectos <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
                         </a>
-                        <a class="btn boton-descargar-cv" href="assets/CV_Alan_Cruz.pdf" download>
+                        <a class="btn boton-descargar-cv" href="/assets/perfil/Docs/CV_AJCA.pdf" download>
                             <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i> Descargar CV
                         </a>
                     </div>
@@ -97,12 +97,12 @@
             <div class="col-lg-3 text-center">
                 <div class="panel-telemetria ai-agent-container">
                     <div class="panel-telemetria-encabezado">
-                        <span>AI_ASSISTANT // V1.0</span>
+                        <span>IXTLANCITO</span>
                     </div>
 
                     <div class="video-wrapper position-relative mt-3">
                         <video autoplay loop muted playsinline class="w-100 rounded-4 shadow-lg">
-                            <source src="assets/videos/sinfondoix.mp4" type="video/mp4">
+                            <source src="assets/videos/ixnegro.MP4" type="video/mp4">
                             Tu navegador no soporta el elemento de video.
                         </video>
 
@@ -169,11 +169,23 @@
             <span class="driver-status"><i></i> PERFIL ACTIVO</span>
         </div>
 
-        <!-- FOTO A LA IZQUIERDA / CIRCUITO A LA DERECHA -->
         <div class="row g-4 g-xl-5 align-items-center driver-track-layout">
 
             <div class="col-12 col-md-4 col-xl-3 columna-foto-perfil">
-                <div class="contenedor-foto-perfil">
+
+                <div
+                    id="driver-card-toggle"
+                    class="contenedor-foto-perfil driver-card-toggle"
+                    role="button"
+                    tabindex="0"
+                    aria-expanded="false"
+                    aria-controls="driver-panel"
+                    aria-label="Mostrar mi trayectoria">
+
+                    <div class="driver-card-inner">
+
+                        <div class="driver-card-face driver-card-front">
+                            
                     <img src="assets/perfil/alan-port.png" alt="Fotografía de Alan Cruz">
 
                     <img class="logo-fondo-foto"
@@ -187,13 +199,74 @@
                         <span class="esquina esquina-inferior-derecha"></span>
                         <p class="nombre-sobre-foto">ALAN<br>CRUZ</p>
                     </div>
+                
+                        </div>
+
+                        <div class="driver-card-face driver-card-back">
+                            <div class="driver-card-back-content">
+                                <span class="driver-card-back-kicker">DRIVER PROFILE // 001</span>
+                                <span class="driver-card-back-name">ALAN<br>CRUZ</span>
+                                <span class="driver-card-back-line"></span>
+                                <span class="driver-card-back-label">ENGINEERING</span>
+                                <span class="driver-card-back-label">SOFTWARE</span>
+                                <span class="driver-card-back-label">ROBOTICS</span>
+                                <span class="driver-card-back-action">VIEW CAREER</span>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
 
                 <p class="foto-caption">ENGINEERING // SOFTWARE // ROBOTICS</p>
             </div>
 
             <div class="col-12 col-md-8 col-xl-9 driver-track-column">
-                <div id="trayectoria" class="race-compact">
+
+                <div id="driver-panel" class="driver-panel">
+
+                    <div class="driver-view driver-view-about is-active"
+                         aria-hidden="false">
+                        <div class="driver-bio-below">
+            <p class="etiqueta-seccion">01 / ABOUT ME</p>
+            <h2 class="driver-titulo">Ingeniería, robótica y código<span>.</span></h2>
+
+            <div class="driver-bio-grid">
+                <p class="texto-sobre-mi">
+                    Soy estudiante de Ingeniería en Sistemas y Desarrollador
+                    Full Stack Java Jr. Me interesa construir soluciones de
+                    software, especialmente desde el backend, y aplicar el
+                    análisis y el pensamiento de ingeniería para resolver problemas.
+                </p>
+
+                <p class="texto-sobre-mi">
+                    Mi experiencia como coach y mentor de robótica me ha
+                    permitido trabajar con equipos, acompañar procesos de
+                    diseño y desarrollo, y convertir ideas en proyectos
+                    tecnológicos. Disfruto conectar la parte técnica con la
+                    organización y el trabajo colaborativo.
+                </p>
+            </div>
+
+            <div class="driver-datos">
+                <div class="driver-dato">
+                    <span>FOCUS</span>
+                    <strong>Software development</strong>
+                </div>
+                <div class="driver-dato">
+                    <span>BACKGROUND</span>
+                    <strong>Robotics &amp; engineering</strong>
+                </div>
+                <div class="driver-dato">
+                    <span>NEXT GOAL</span>
+                    <strong>Backend &amp; data analysis</strong>
+                </div>
+            </div>
+        </div>
+                    </div>
+
+                    <div class="driver-view driver-view-career"
+                         aria-hidden="true">
+                        <div id="trayectoria" class="race-compact">
 
                     <div class="race-compact-heading">
                         <div>
@@ -202,9 +275,9 @@
                         </div>
 
                         <div class="race-circuit-data">
-                            <span>AUTÓDROMO HERMANOS RODRÍGUEZ</span>
-                            <strong>CIUDAD DE MÉXICO · MX</strong>
-                            <small>17 CURVAS / 4.304 KM</small>
+                    
+                            <strong>MÉXICO </strong>
+                            
                         </div>
                     </div>
 
@@ -322,44 +395,10 @@
                         </article>
                     </div>
                 </div>
-            </div>
-        </div>
+                    </div>
 
-        <!-- TEXTO PROFESIONAL DEBAJO DE FOTO Y CIRCUITO -->
-        <div class="driver-bio-below">
-            <p class="etiqueta-seccion">01 / ABOUT ME</p>
-            <h2 class="driver-titulo">Ingeniería, robótica y código<span>.</span></h2>
-
-            <div class="driver-bio-grid">
-                <p class="texto-sobre-mi">
-                    Soy estudiante de Ingeniería en Sistemas y Desarrollador
-                    Full Stack Java Jr. Me interesa construir soluciones de
-                    software, especialmente desde el backend, y aplicar el
-                    análisis y el pensamiento de ingeniería para resolver problemas.
-                </p>
-
-                <p class="texto-sobre-mi">
-                    Mi experiencia como coach y mentor de robótica me ha
-                    permitido trabajar con equipos, acompañar procesos de
-                    diseño y desarrollo, y convertir ideas en proyectos
-                    tecnológicos. Disfruto conectar la parte técnica con la
-                    organización y el trabajo colaborativo.
-                </p>
-            </div>
-
-            <div class="driver-datos">
-                <div class="driver-dato">
-                    <span>FOCUS</span>
-                    <strong>Software development</strong>
                 </div>
-                <div class="driver-dato">
-                    <span>BACKGROUND</span>
-                    <strong>Robotics &amp; engineering</strong>
-                </div>
-                <div class="driver-dato">
-                    <span>NEXT GOAL</span>
-                    <strong>Backend &amp; data analysis</strong>
-                </div>
+
             </div>
         </div>
     </div>
@@ -423,23 +462,16 @@
 <!-- DESCRIPCIÓN DINÁMICA DE PROYECTOS -->
 <section id="descripcion-proyectos" class="descripcion-proyectos">
     <div class="container-fluid px-4 px-lg-5">
-        <div class="row g-5 align-items-center">
+        <!-- align-items-start: ambas columnas empiezan arriba.
+             Antes era align-items-center y por eso el texto de la izquierda
+             quedaba más abajo que la descripción de la derecha. -->
+        <div class="row g-5 align-items-start">
 
+            <!-- Columna izquierda: año, título, categoría y botones -->
             <div class="col-lg-4">
                 <span id="proyecto-anio" class="proyecto-anio"></span>
                 <h2 id="proyecto-titulo"></h2>
                 <p id="proyecto-categoria"></p>
-            </div>
-
-            <div class="col-lg-8">
-                <p id="proyecto-descripcion"></p>
-
-                <div class="proyecto-participacion">
-                    <h5>Mi participación</h5>
-                    <p id="proyecto-rol"></p>
-                </div>
-
-                <div id="proyecto-tecnologias" class="proyecto-tecnologias"></div>
 
                 <div class="proyecto-botones">
                     <a id="proyecto-repo" href="#" target="_blank"
@@ -453,16 +485,29 @@
                     </a>
                 </div>
             </div>
+
+            <!-- Columna derecha: descripción, participación y tecnologías -->
+            <div class="col-lg-8">
+                <p id="proyecto-descripcion"></p>
+
+                <div class="proyecto-participacion">
+                    <h5>Mi participación</h5>
+                    <p id="proyecto-rol"></p>
+                </div>
+
+                <div id="proyecto-tecnologias" class="proyecto-tecnologias"></div>
+            </div>
         </div>
     </div>
 </section>
+
 
 <!-- CONTACTO -->
 <section id="contacto" class="seccion-contacto">
     <div class="container-fluid px-4 px-lg-5">
         <div class="contacto-contenido">
 
-            <span class="etiqueta-contacto">CONTACTO // 01</span>
+            <span class="etiqueta-contacto">CONTACTO </span>
             <h2>¿Trabajamos juntos?</h2>
 
             <p class="texto-contacto">

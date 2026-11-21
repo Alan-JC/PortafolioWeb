@@ -172,8 +172,8 @@
 
 /* Botón principal: relleno verde con texto oscuro */
 .boton-ver-proyectos {
-  background-color: var(--verde-petronas);
-  border: 1px solid var(--verde-petronas);
+  background-color: var(--verde-electrico);
+  border: 1px solid var(--verde-electrico);
   color: var(--negro);
 }
 
@@ -482,4 +482,12 @@
 .proyectos-texto {
   flex: 2;
   align-self: center;
+  text-align: center;
+}
+
+/* Color del título "Proyectos". El h1 heredaba el color oscuro de
+   Bootstrap, por eso casi no se veía sobre el fondo gris. */
+.proyectos-texto h1 {
+  color: var(--verde-electrico);
+  margin: 0;
 }

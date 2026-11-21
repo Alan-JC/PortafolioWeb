@@ -1,16 +1,16 @@
 /* DESCRIPCIÓN DE PROYECTOS */
 
 .descripcion-proyectos {
-    background-color: #ffffff;
+    background-color: #242424 ;
     color: #121214;
-    padding: 100px 0;
+    padding: 30px 0 40px;
 }
 
 .descripcion-proyectos h2 {
-    color: #121214;
+    color: #02F5D0 ;
     font-size: clamp(2rem, 4vw, 3.5rem);
     font-weight: 700;
-    margin: 15px 0;
+    margin: 5px 0 10px;
 }
 
 .proyecto-anio {
@@ -21,7 +21,7 @@
 }
 
 #proyecto-categoria {
-    color: #777777;
+    color: #c8ccce;
     font-size: 0.95rem;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -29,7 +29,7 @@
 
 #proyecto-descripcion,
 #proyecto-rol {
-    color: #555555;
+    color: #ffffff;
     font-size: 1.05rem;
     line-height: 1.8;
 }
@@ -40,7 +40,7 @@
 
 .proyecto-participacion h5 {
     font-weight: 700;
-    color: #121214;
+    color: #00A19B;
 }
 
 .proyecto-tecnologias {
@@ -65,7 +65,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
-    margin-top: 35px;
+    margin-top: 30px;
 }
 
 .btn-proyecto {
@@ -81,13 +81,13 @@
 }
 
 .btn-repo {
-    background-color: #121214;
-    color: #ffffff;
+    background-color: #02F5D0;
+    color: #121214;
 }
 
 .btn-repo:hover {
-    background-color: #333333;
-    color: #ffffff;
+    background-color: #72FF13;
+    color: #121214;
 }
 
 .btn-demo {
@@ -96,14 +96,14 @@
 }
 
 .btn-demo:hover {
-    background-color: #00A19B;
-    border-color: #00A19B;
-    color: #ffffff;
+    background-color: #72FF13;
+    border-color: #72FF13;
+    color: #121214;
 }
 
 @media (max-width: 768px) {
     .descripcion-proyectos {
-        padding: 60px 0;
+        padding: 30px 0;
     }
 
     .proyecto-botones {

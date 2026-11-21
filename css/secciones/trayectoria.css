@@ -8,7 +8,7 @@
     color: var(--plata);
     background:
         radial-gradient(ellipse at 15% 50%, rgba(0, 161, 155, 0.10), transparent 42%),
-        #050607;
+        #0a0a0c;
     border-top: 1px solid rgba(2, 245, 208, 0.25);
 }
 
@@ -494,8 +494,7 @@
    DRIVER PROFILE + TRACK EN UNA SOLA COMPOSICIÓN
    ========================================================= */
 .driver-combined {
-    padding: clamp(2.2rem, 4vw, 4rem) 0;
-    min-height: auto;
+    padding-bottom: 0;
 }
 .driver-combined .driver-profile-encabezado {
     margin-bottom: 1.4rem;
@@ -533,7 +532,7 @@
     margin-bottom: .7rem;
 }
 .driver-combined .driver-datos {
-    margin: .8rem 0 1.2rem;
+    margin-bottom: 0;
 }
 .race-compact {
     margin-top: 1.2rem;
@@ -716,4 +715,235 @@
     .driver-track-layout > .columna-foto-perfil { flex-basis: 30%; max-width: 30%; }
     .driver-track-layout > .driver-track-column { flex-basis: 70%; max-width: 70%; }
     .driver-track-column .race-compact-grid { grid-template-columns: 1fr; }
+}
+
+/* =========================================================
+   INTERACCIÓN: TARJETA 3D + PANEL SOBRE MÍ / TRAYECTORIA
+   ========================================================= */
+
+/* Mantener ambas vistas en el mismo espacio */
+.driver-profile .driver-panel {
+    display: grid;
+    align-items: start;
+    min-width: 0;
+}
+
+.driver-profile .driver-view {
+    grid-area: 1 / 1;
+    min-width: 0;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(12px);
+    transition:
+        opacity .4s ease,
+        transform .4s ease,
+        visibility 0s linear .4s;
+}
+
+.driver-profile .driver-view.is-active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+    transition:
+        opacity .4s ease,
+        transform .4s ease,
+        visibility 0s;
+}
+
+/* Ajustes del contenido de cada vista */
+.driver-profile .driver-bio-below {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.driver-profile .driver-view-career .race-compact {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0;
+}
+
+/* Tarjeta exterior */
+.driver-profile .driver-card-toggle {
+    position: relative;
+    overflow: visible;
+    perspective: 1200px;
+    cursor: pointer;
+    outline: none;
+    isolation: isolate;
+    box-shadow: none;
+    transition: none;
+}
+
+/* Evitar que el efecto global de proyectos interfiera */
+@media (hover: hover) {
+    .driver-profile .driver-card-toggle:hover {
+        transform: none;
+        box-shadow: none;
+    }
+
+    .driver-profile .driver-card-toggle:hover::before {
+        opacity: 0;
+    }
+
+    .driver-profile .driver-card-toggle:hover img {
+        transform: none;
+    }
+}
+
+.driver-profile .driver-card-toggle:focus-visible {
+    outline: 2px solid var(--verde-petronas);
+    outline-offset: 5px;
+}
+
+/* Elemento que gira */
+.driver-profile .driver-card-inner {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform .8s cubic-bezier(.2, .7, .2, 1);
+}
+
+.driver-profile .driver-card-toggle.is-flipped .driver-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Caras frontal y posterior */
+.driver-profile .driver-card-face {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    border-radius: 0 0 2rem 0;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.driver-profile .driver-card-front {
+    background: linear-gradient(
+        180deg,
+        #020808 0%,
+        #0B2A28 45%,
+        #026c6a 100%
+    );
+}
+
+.driver-profile .driver-card-back {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    transform: rotateY(180deg);
+    background:
+        radial-gradient(
+            ellipse at 50% 35%,
+            rgba(0, 161, 155, .2),
+            transparent 65%
+        ),
+        linear-gradient(145deg, #111719, #050809 75%);
+    border: 1px solid rgba(2, 245, 208, .3);
+}
+
+.driver-profile .driver-card-back-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .65rem;
+    width: 100%;
+    text-align: center;
+}
+
+.driver-profile .driver-card-back-kicker {
+    color: var(--verde-petronas);
+    font-size: .58rem;
+    font-weight: 700;
+    letter-spacing: .2em;
+}
+
+.driver-profile .driver-card-back-name {
+    color: var(--blanco);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: .9;
+    letter-spacing: .04em;
+}
+
+.driver-profile .driver-card-back-line {
+    width: 42px;
+    height: 2px;
+    margin: .4rem 0;
+    background: var(--verde-petronas);
+}
+
+.driver-profile .driver-card-back-label {
+    color: rgba(200, 204, 206, .8);
+    font-size: .65rem;
+    font-weight: 600;
+    letter-spacing: .2em;
+}
+
+.driver-profile .driver-card-back-action {
+    margin-top: 1rem;
+    color: var(--verde-petronas);
+    font-size: .58rem;
+    font-weight: 700;
+    letter-spacing: .16em;
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 767.98px) {
+    .driver-profile .driver-card-back {
+        padding: 1rem;
+    }
+
+    .driver-profile .driver-card-back-name {
+        font-size: clamp(1.8rem, 9vw, 2.8rem);
+    }
+
+    .driver-profile .driver-card-back-label {
+        font-size: .58rem;
+    }
+}
+
+/* Respetar la preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+    .driver-profile .driver-card-inner,
+    .driver-profile .driver-view {
+        transition: none;
+    }
+}
+
+/* =========================================================
+   CORRECCIÓN: TARJETA FIJA, SOLO CAMBIA EL PANEL DERECHO
+   ========================================================= */
+
+.driver-profile .driver-card-toggle {
+    overflow: hidden;
+    perspective: none;
+}
+
+.driver-profile .driver-card-inner {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: 100%;
+    transform: none;
+    transform-style: flat;
+    transition: none;
+}
+
+.driver-profile .driver-card-front {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: 100%;
+    transform: none;
+}
+
+.driver-profile .driver-card-back {
+    display: none;
 }

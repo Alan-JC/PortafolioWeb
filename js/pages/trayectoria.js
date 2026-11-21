@@ -4,6 +4,76 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
+    // =====================================================
+    // CAMBIO ENTRE SOBRE MÍ Y MI TRAYECTORIA
+    // =====================================================
+
+    const card = document.getElementById("driver-card-toggle");
+    const aboutView = document.querySelector(".driver-view-about");
+    const careerView = document.querySelector(".driver-view-career");
+
+    const navAbout = document.querySelector('a[href="#sobre-mi"]');
+    const navCareer = document.querySelector('a[href="#trayectoria"]');
+
+    function setDriverView(view) {
+        const showCareer = view === "career";
+
+        aboutView?.classList.toggle("is-active", !showCareer);
+        careerView?.classList.toggle("is-active", showCareer);
+
+        aboutView?.setAttribute("aria-hidden", String(showCareer));
+        careerView?.setAttribute("aria-hidden", String(!showCareer));
+
+        card?.setAttribute("aria-expanded", String(showCareer));
+        card?.setAttribute(
+            "aria-label",
+            showCareer ? "Mostrar sobre mí" : "Mostrar mi trayectoria"
+        );
+
+        navAbout?.setAttribute("aria-current", showCareer ? "false" : "page");
+        navCareer?.setAttribute("aria-current", showCareer ? "page" : "false");
+    }
+
+    // Estado inicial
+    setDriverView("about");
+
+    // Activar la tarjeta con clic
+    card?.addEventListener("click", () => {
+        const estaEnTrayectoria = card.getAttribute("aria-expanded") === "true";
+        setDriverView(estaEnTrayectoria ? "about" : "career");
+    });
+
+    // Permitir activar la tarjeta con teclado
+    card?.addEventListener("keydown", (evento) => {
+        if (evento.key === "Enter" || evento.key === " ") {
+            evento.preventDefault();
+
+            const estaEnTrayectoria = card.getAttribute("aria-expanded") === "true";
+            setDriverView(estaEnTrayectoria ? "about" : "career");
+        }
+    });
+
+    // El menú cambia la vista y mantiene la sección en pantalla
+    navAbout?.addEventListener("click", (evento) => {
+        evento.preventDefault();
+        setDriverView("about");
+
+        document.getElementById("sobre-mi")?.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    });
+
+    navCareer?.addEventListener("click", (evento) => {
+        evento.preventDefault();
+        setDriverView("career");
+
+        document.getElementById("sobre-mi")?.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    });
+
     // Información de cada etapa de mi trayectoria
     const etapas = [
         {

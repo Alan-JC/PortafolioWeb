@@ -121,7 +121,11 @@
 /* ========== PROYECTOS: FONDO Y AJUSTE DE IMAGEN ========== */
 
 .seccion-proyectos {
-  background-color: #2f3035;
+  background-color: #242424;
+  min-height: calc(62.6vh - 4.5rem);
+  display: flex;
+  align-items: center;
+  border-top: 3px solid var(--verde-petronas);
 }
 
 /* Muestra la imagen entera, sin recortar. El azul rellena el espacio
