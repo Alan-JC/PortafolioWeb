@@ -49,7 +49,6 @@
         <div class="collapse navbar-collapse justify-content-end" id="menuPrincipal">
             <div class="contenedor-botones-navegacion">
                 <a class="btn boton-navegacion" href="#sobre-mi">Sobre mí</a>
-                <a class="btn boton-navegacion" href="#trayectoria">Trayectoria</a>
                 <a class="btn boton-navegacion" href="#proyectos">Proyectos</a>
                 <a class="btn boton-navegacion" href="#contacto">Contacto</a>
                 <a class="btn boton-navegacion" href="ixtlan.html">IXTLAN STEAMex</a>
@@ -166,7 +165,6 @@
 
         <div class="driver-profile-encabezado">
             <span class="driver-kicker">DRIVER PROFILE // 001</span>
-            <span class="driver-status"><i></i> PERFIL ACTIVO</span>
         </div>
 
         <div class="row g-4 g-xl-5 align-items-center driver-track-layout">
@@ -287,69 +285,150 @@
                                 TRACK MAP <span>· SELECT A STAGE</span>
                             </div>
 
-                            <svg class="race-map" viewBox="0 0 800 430"
-                                 role="group"
-                                 aria-label="Recorrido interactivo de trayectoria inspirado en el Autódromo Hermanos Rodríguez">
+                           <svg class="race-map" viewBox="0 0 800 430"
+     role="group"
+     aria-label="Recorrido interactivo de trayectoria inspirado en el Autódromo Hermanos Rodríguez">
 
-                                <path class="race-track-shadow"
-                                      fill="none" stroke="#00d2be"
-                                      stroke-opacity=".15" stroke-width="22"
-                                      stroke-linecap="round" stroke-linejoin="round"
-                                      d="M105 85 L260 55 L505 55 Q620 55 655 115 L690 180 Q710 220 665 245 L575 280 Q535 295 560 330 L635 365 Q670 385 640 405 Q610 425 565 400 L465 345 Q420 325 390 355 L345 400 Q320 425 290 400 L245 355 Q215 330 185 350 L125 390 Q85 410 65 375 Q45 340 75 305 L125 245 Q150 215 125 185 L75 130 Q55 100 80 88 Z"/>
+    <!--
+        Trazado del circuito. Sentido de carrera: de izquierda a derecha por la recta principal.
+        Orden de los tramos en el path:
+        1. Recta principal (arriba)
+        2. Curvas 1, 2 y 3
+        3. Diagonal larga hacia abajo
+        4. Curvas 4, 5 y 6 (esquina inferior derecha)
+        5. Recta vertical hacia arriba hasta la curva 7
+        6. Curvas 7 a 11 (zona central)
+        7. Recta larga hacia la izquierda hasta la curva 12
+        8. Curvas 12 a 17 (sección del estadio, Foro Sol)
+        La "Z" final cierra el circuito en la línea de meta.
+    -->
+    <path class="race-track-shadow"
+          fill="none" stroke="#00d2be"
+          stroke-opacity=".15" stroke-width="22"
+          stroke-linecap="round" stroke-linejoin="round"
+          d="M182 74 L650 72
+             Q672 72 672 94 L672 118
+             Q700 122 700 140
+             L618 342
+             Q610 352 622 364
+             Q632 374 620 388
+             L576 412
+             Q566 416 568 402
+             L572 292
+             Q574 278 560 276
+             L530 276
+             Q515 274 514 258
+             L512 236
+             Q511 226 498 226
+             L440 244
+             Q426 246 426 230
+             L426 206
+             Q424 194 410 188
+             L380 176
+             Q372 174 362 174
+             L205 176
+             Q194 178 191 166
+             L184 112
+             Q182 100 172 102
+             Q164 106 168 122
+             Q168 140 154 140
+             L118 134
+             Q104 132 104 116
+             L106 90
+             Q108 76 125 76
+             Z"/>
 
-                                <path class="race-track"
-                                      fill="none" stroke="#c8ccce"
-                                      stroke-width="10" stroke-linecap="round"
-                                      stroke-linejoin="round"
-                                      d="M105 85 L260 55 L505 55 Q620 55 655 115 L690 180 Q710 220 665 245 L575 280 Q535 295 560 330 L635 365 Q670 385 640 405 Q610 425 565 400 L465 345 Q420 325 390 355 L345 400 Q320 425 290 400 L245 355 Q215 330 185 350 L125 390 Q85 410 65 375 Q45 340 75 305 L125 245 Q150 215 125 185 L75 130 Q55 100 80 88 Z"/>
+    <!-- Misma forma que la sombra, pero más delgada y de color gris para la pista en sí -->
+    <path class="race-track"
+          fill="none" stroke="#c8ccce"
+          stroke-width="10" stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M182 74 L650 72
+             Q672 72 672 94 L672 118
+             Q700 122 700 140
+             L618 342
+             Q610 352 622 364
+             Q632 374 620 388
+             L576 412
+             Q566 416 568 402
+             L572 292
+             Q574 278 560 276
+             L530 276
+             Q515 274 514 258
+             L512 236
+             Q511 226 498 226
+             L440 244
+             Q426 246 426 230
+             L426 206
+             Q424 194 410 188
+             L380 176
+             Q372 174 362 174
+             L205 176
+             Q194 178 191 166
+             L184 112
+             Q182 100 172 102
+             Q164 106 168 122
+             Q168 140 154 140
+             L118 134
+             Q104 132 104 116
+             L106 90
+             Q108 76 125 76
+             Z"/>
 
-                                <path class="race-start-line" fill="none"
-                                      stroke="#00d2be" stroke-width="4"
-                                      d="M250 48 L250 65"/>
+    <!-- Línea de salida y meta: raya vertical que cruza la recta principal -->
+    <path class="race-start-line" fill="none"
+          stroke="#00d2be" stroke-width="4"
+          d="M270 65 L270 83"/>
 
-                                <text x="265" y="39" class="race-svg-label">START / FINISH</text>
-                                <text x="540" y="315" class="race-svg-label race-foro">FORO SOL</text>
+    <!-- Etiquetas de texto (las moví para que no se encimen con la pista) -->
+    <text x="285" y="58" class="race-svg-label">START / FINISH</text>
+    <text x="215" y="140" class="race-svg-label race-foro">FORO SOL</text>
 
-                                <g class="race-marker is-active" data-stage="0"
-                                   role="button" tabindex="0"
-                                   aria-label="Etapa 1: Formación técnica"
-                                   aria-pressed="true">
-                                    <circle cx="260" cy="55" r="15"/>
-                                    <text x="260" y="59">01</text>
-                                </g>
+    <!-- Etapa 1: sobre la recta principal, junto a la línea de meta -->
+    <g class="race-marker is-active" data-stage="0"
+       role="button" tabindex="0"
+       aria-label="Etapa 1: Formación técnica"
+       aria-pressed="true">
+        <circle cx="270" cy="74" r="15"/>
+        <text x="270" y="78">01</text>
+    </g>
 
-                                <g class="race-marker" data-stage="1"
-                                   role="button" tabindex="0"
-                                   aria-label="Etapa 2: Robótica e ingeniería"
-                                   aria-pressed="false">
-                                    <circle cx="680" cy="160" r="15"/>
-                                    <text x="680" y="164">02</text>
-                                </g>
+    <!-- Etapa 2: en la diagonal larga después de las curvas 1, 2 y 3 -->
+    <g class="race-marker" data-stage="1"
+       role="button" tabindex="0"
+       aria-label="Etapa 2: Robótica e ingeniería"
+       aria-pressed="false">
+        <circle cx="676" cy="200" r="15"/>
+        <text x="676" y="204">02</text>
+    </g>
 
-                                <g class="race-marker" data-stage="2"
-                                   role="button" tabindex="0"
-                                   aria-label="Etapa 3: FIRST y mentoría"
-                                   aria-pressed="false">
-                                    <circle cx="610" cy="390" r="15"/>
-                                    <text x="610" y="394">03</text>
-                                </g>
+    <!-- Etapa 3: en la recta vertical que sale de la curva 6 -->
+    <g class="race-marker" data-stage="2"
+       role="button" tabindex="0"
+       aria-label="Etapa 3: FIRST y mentoría"
+       aria-pressed="false">
+        <circle cx="571" cy="360" r="15"/>
+        <text x="571" y="364">03</text>
+    </g>
 
-                                <g class="race-marker" data-stage="3"
-                                   role="button" tabindex="0"
-                                   aria-label="Etapa 4: Innovación y proyectos"
-                                   aria-pressed="false">
-                                    <circle cx="190" cy="350" r="15"/>
-                                    <text x="190" y="354">04</text>
-                                </g>
+    <!-- Etapa 4: en la zona central, entre las curvas 9 y 10 -->
+    <g class="race-marker" data-stage="3"
+       role="button" tabindex="0"
+       aria-label="Etapa 4: Innovación y proyectos"
+       aria-pressed="false">
+        <circle cx="470" cy="235" r="15"/>
+        <text x="470" y="239">04</text>
+    </g>
 
-                                <g class="race-marker" data-stage="4"
-                                   role="button" tabindex="0"
-                                   aria-label="Etapa 5: Desarrollo de software"
-                                   aria-pressed="false">
-                                    <circle cx="75" cy="130" r="15"/>
-                                    <text x="75" y="134">05</text>
-                                </g>
-                            </svg>
+    <!-- Etapa 5: en la curva del estadio, al final de la vuelta -->
+    <g class="race-marker" data-stage="4"
+       role="button" tabindex="0"
+       aria-label="Etapa 5: Desarrollo de software"
+       aria-pressed="false">
+        <circle cx="104" cy="116" r="15"/>
+        <text x="104" y="120">05</text>
+    </g>
+</svg>
 
                             <div class="race-map-legend">
                                 <span><i class="legend-dot"></i> ETAPA SELECCIONADA</span>
@@ -482,6 +561,12 @@
                     <a id="proyecto-demo" href="#" target="_blank"
                        rel="noopener noreferrer" class="btn-proyecto btn-demo">
                         Ver proyecto
+                    </a>
+
+                    <a id="proyecto-pdf" href="#" target="_blank"
+                        rel="noopener noreferrer" class="btn-proyecto">
+                        <i class="fa-solid fa-file-pdf"></i>
+                         Ver documentación
                     </a>
                 </div>
             </div>

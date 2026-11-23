@@ -134,3 +134,13 @@
   object-fit: contain;
   background-color: #09103c;
 }
+
+
+
+.icono-tecnologia {
+    font-size: 2rem;
+    color: #00d2be;
+    background: transparent;
+    border: none;
+    padding: 0;
+}

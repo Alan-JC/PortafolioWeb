@@ -1,25 +1,39 @@
 
 // Información de los proyectos
 const proyectos = [
+   {
+    titulo: "Ajolote y Grulla",
+    anio: "2026",
+    categoria: "Desarrollo Full Stack y gestión ágil",
+    descripcion: "Desarrollo de una plataforma de comercio electrónico especializada en papelería japonesa, enfocada en ofrecer una experiencia de compra personalizada. Participo en la implementación de funcionalidades frontend y backend, el desarrollo de interfaces responsivas y la integración de componentes interactivos. Además, desempeño el rol de Scrum Master, coordinando las actividades del equipo, dando seguimiento a las tareas y promoviendo el trabajo colaborativo mediante metodologías ágiles.",
+    rol: "Desarrollador Full Stack Java y Scrum Master.",
+    tecnologias: [
+        "fa-brands fa-java",
+        "fa-brands fa-js",
+        "fa-brands fa-html5",
+        "fa-brands fa-css3-alt",
+        "fa-brands fa-bootstrap",
+        "fa-brands fa-git-alt",
+        "fa-brands fa-github"
+    ],
+    repo: "https://github.com/Alan-JC/Ajolote-y-Grulla",
+    demo: "https://alan-jc.github.io/Ajolote-y-Grulla/"
+},
     {
-        titulo: "Ajolote y Grulla",
-        anio: "2026",
-        categoria: "Desarrollo de software",
-        descripcion: "Desarrollo de una plataforma de comercio electrónico, enfocada en ofrecer una experiencia de compra y gestión de productos mediante una solución web.",
-        rol: "Desarrollo Full Stack y participación en la construcción de la plataforma.",
-        tecnologias: ["Java", "JavaScript", "HTML", "CSS", "Bootstrap"],
-        repo: "https://github.com/USUARIO/REPOSITORIO",
-        demo: "https://enlace-del-proyecto.com"
-    },
-    {
-        titulo: "TERRA-6",
-        anio: "2026",
-        categoria: "Mars Challenge | Exploración espacial",
-        descripcion: "Propuesta de diseño de un hábitat para seis astronautas durante una misión de 310 días en Marte, considerando sistemas de energía, habitabilidad y aprovechamiento de recursos.",
-        rol: "Responsable técnico del proyecto y coordinación del desarrollo de la propuesta.",
-        tecnologias: ["Ingeniería", "Energía solar", "Kilopower", "AQUA-RAÍZ"],
-        repo: "https://github.com/USUARIO/REPOSITORIO",
-        demo: "https://enlace-del-proyecto.com"
+    titulo: "TERRA-6",
+    anio: "2026",
+    categoria: "Mars Challenge | Exploración espacial",
+    descripcion: "Desarrollo de una propuesta de hábitat marciano para seis astronautas durante una misión de 310 días, fundamentada en investigación técnica y referencias de NASA, Curiosity e ISS. El proyecto contempla el dimensionamiento de sistemas de protección radiológica, generación de energía híbrida solar con respaldo tipo Kilopower y aprovechamiento de agua mediante el sistema AQUA-RAÍZ.",
+    rol: "Responsable técnico del proyecto e investigación, dimensionamiento y coordinación de la propuesta de ingeniería.",
+    tecnologias: [
+    "Ingeniería aeroespacial",
+    "Sistemas de soporte vital",
+    "Energía solar",
+    "Kilopower",
+    "Protección radiológica",
+    "AQUA-RAÍZ"
+    ],
+    pdf: "assets/proyectos/mars/Mars.pdf"
     },
     {
         titulo: "ReRuta",
@@ -91,12 +105,23 @@ function actualizarProyecto(indice) {
     document.getElementById("proyecto-descripcion").textContent = proyecto.descripcion;
     document.getElementById("proyecto-rol").textContent = proyecto.rol;
 
-    // Actualizar tecnologías
-    const contenedorTecnologias = document.getElementById("proyecto-tecnologias");
+   // Actualizar tecnologías
+const contenedorTecnologias = document.getElementById("proyecto-tecnologias");
 
-    contenedorTecnologias.innerHTML = "";
+contenedorTecnologias.innerHTML = "";
 
-    proyecto.tecnologias.forEach(function (tecnologia) {
+proyecto.tecnologias.forEach(function (tecnologia) {
+
+    if (tecnologia.startsWith("fa-") || tecnologia.startsWith("devicon-")) {
+
+        const icono = document.createElement("i");
+
+        icono.className = tecnologia + " icono-tecnologia";
+        icono.setAttribute("aria-hidden", "true");
+
+        contenedorTecnologias.appendChild(icono);
+
+    } else {
 
         const etiqueta = document.createElement("span");
 
@@ -105,14 +130,19 @@ function actualizarProyecto(indice) {
 
         contenedorTecnologias.appendChild(etiqueta);
 
-    });
+    }
+
+});
 
     // ACTUALIZAR BOTONES
     const botonRepo = document.getElementById("proyecto-repo");
     const botonDemo = document.getElementById("proyecto-demo");
+    const botonPdf = document.getElementById("proyecto-pdf");
 
     botonRepo.href = proyecto.repo || "#";
     botonDemo.href = proyecto.demo || "#";
+    botonPdf.href = proyecto.pdf || "#";
+botonPdf.style.display = proyecto.pdf ? "inline-flex" : "none";
 
     // Ocultar botones si no hay enlaces
     botonRepo.style.display = proyecto.repo ? "inline-flex" : "none";
