@@ -12,3 +12,4 @@ node_modules/
 # Archivos temporales
 *.log
 *.tmp
+assets/proyectos/Robotica/modelos/robot.gltf

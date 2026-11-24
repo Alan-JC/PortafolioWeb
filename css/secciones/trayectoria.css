@@ -509,12 +509,12 @@
     align-items: center;
 }
 .driver-combined .contenedor-foto-perfil {
-    width: min(100%, 340px);
+    width: min(100%, 420px);
     margin-inline: auto;
 }
 .driver-combined .foto-caption {
     width: 100%;
-    max-width: 340px;
+    max-width: 4200px;
     text-align: center;
 }
 .driver-info-column {
@@ -664,12 +664,12 @@
     align-items: center !important;
 }
 .driver-track-layout > .columna-foto-perfil {
-    flex: 0 0 25%;
-    max-width: 25%;
+    flex: 0 0 30%;
+    max-width: 30%;
 }
 .driver-track-layout > .driver-track-column {
-    flex: 0 0 75%;
-    max-width: 75%;
+    flex: 0 0 70%;
+    max-width: 70%;
     min-width: 0;
 }
 .driver-track-column .race-compact {
@@ -778,19 +778,26 @@
     transition: none;
 }
 
-/* Evitar que el efecto global de proyectos interfiera */
+/* Transición suave para el efecto al pasar el mouse sobre la tarjeta */
+.driver-profile .driver-card-toggle {
+    transition: transform .35s ease, box-shadow .35s ease;
+}
+
+/* La imagen también necesita transición para poder hacer zoom */
+.driver-profile .driver-card-toggle img {
+    transition: transform .6s ease;
+}
+
 @media (hover: hover) {
+    /* Al pasar el mouse: la tarjeta sube un poco y aparece un brillo verde Petronas */
     .driver-profile .driver-card-toggle:hover {
-        transform: none;
-        box-shadow: none;
+        transform: translateY(-8px);
+        box-shadow: 0 18px 40px rgba(0, 210, 190, .22);
     }
 
-    .driver-profile .driver-card-toggle:hover::before {
-        opacity: 0;
-    }
-
+    /* Al pasar el mouse: la foto se acerca un poco dentro de la tarjeta */
     .driver-profile .driver-card-toggle:hover img {
-        transform: none;
+        transform: scale(1.05);
     }
 }
 
@@ -827,8 +834,8 @@
     background: linear-gradient(
         180deg,
         #020808 0%,
-        #0B2A28 45%,
-        #026c6a 100%
+        #00a19b 45%,
+        #02F5D0 100%
     );
 }
 
@@ -946,4 +953,21 @@
 
 .driver-profile .driver-card-back {
     display: none;
+}
+
+
+
+/* Menos espacio arriba de la sección para que el contenido suba */
+.driver-profile.driver-combined {
+    padding-top: clamp(1.5rem, 3vw, 2.5rem);  /* antes llegaba a 7rem */
+    padding-bottom: 2.5rem;                   /* deja respirar al texto "ENGINEERING // SOFTWARE" de abajo */
+}
+
+/* El título pequeño y la tarjeta quedan más cerca */
+.driver-combined .driver-profile-encabezado {
+    margin-bottom: 1rem;
+}
+
+.driver-profile .row {
+    margin-top: 1rem;   /* antes 1.5rem */
 }

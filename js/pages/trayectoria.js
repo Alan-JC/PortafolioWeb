@@ -75,39 +75,50 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Información de cada etapa de mi trayectoria
-    const etapas = [
-        {
-            periodo: "año-año",
-            titulo: "Primeros pasos en ingeniería",
-            descripcion: "Formación en Sistemas de Control Eléctrico en el IPN, donde comenzó mi acercamiento a los sistemas, la electrónica y la resolución técnica de problemas.",
-            area: "Formación técnica · Electrónica · Sistemas"
-        },
-        {
-            periodo: "año-año",
-            titulo: "Exploración de la robótica",
-            descripcion: "Estudios de Ingeniería en Robótica en la Universidad de Ecatepec. Una etapa que fortaleció mi interés por integrar hardware, programación y diseño para construir soluciones.",
-            area: "Robótica · Diseño · Ingeniería"
-        },
-        {
-            periodo: "año-año",
-            titulo: "FIRST y mentoría de equipos",
-            descripcion: "Como coach y mentor de equipos de robótica, acompaño a jóvenes en procesos de ingeniería, diseño, estrategia y trabajo colaborativo dentro de FIRST Tech Challenge.",
-            area: "Mentoría · Coordinación · Ingeniería"
-        },
-        {
-            periodo: "año-año",
-            titulo: "Innovación y proyectos tecnológicos",
-            descripcion: "Participación en retos y proyectos como NASA Space Apps, Aztlan Vita F y TERRA-6, explorando soluciones que conectan tecnología, investigación y trabajo multidisciplinario.",
-            area: "Innovación · Prototipado · Trabajo en equipo"
-        },
-        {
-            periodo: "año-año",
-            titulo: "Desarrollo de software",
-            descripcion: "Formación en Ingeniería en Sistemas y en el programa Full Stack Java de Generation México. Actualmente enfoco mi crecimiento en desarrollo de software, backend y análisis de datos.",
-            area: "Java · Desarrollo web · Backend · Datos"
-        }
-    ];
-
+const etapas = [
+    {
+        periodo: "2016 – 2021",
+        titulo: "Primeros pasos en ingeniería",
+        descripcion: "Estudié Sistemas de Control Eléctrico en el IPN y fui jefe de taller electrónico en Copydigsa, reparando equipos y tarjetas a nivel componente. También trabajé como dibujante Jr. en AutoCAD.",
+        area: "Electrónica · AutoCAD · Sistemas"
+    },
+    {
+        periodo: "2020 – 2023",
+        titulo: "Exploración de la robótica",
+        descripcion: "Cursé tres años de Ingeniería en Robótica en la Universidad de Ecatepec, donde se reforzó mi interés por integrar hardware, programación y diseño.",
+        area: "Robótica · Diseño · Ingeniería"
+    },
+    {
+        periodo: "2022 – 2026",
+        titulo: "FIRST y mentoría de equipos",
+        descripcion: "Fui coach y líder de proyectos tecnológicos en el Club de Niños y Niñas de CDMX y Edo. Méx. Dirigí equipos en FIRST Tech Challenge y WRO, y formé a estudiantes en programación, mecánica y electrónica.",
+        area: "Mentoría · Coordinación · Ingeniería"
+    },
+    {
+        periodo: "2025 – 2026",
+        titulo: "Retos de innovación",
+        descripcion: "Backend y modelo Random Forest en NASA Space Apps para clasificar exoplanetas con datos de la NASA, y responsable técnico del hábitat TERRA-6 para 6 personas en Mars Challenge.",
+        area: "Machine Learning · Investigación · Diseño"
+    },
+    {
+        periodo: "2026 – actualidad",
+        titulo: "Desarrollo de software",
+        descripcion: "Estudio Ingeniería en Sistemas en Univermilenium. Desarrollo frontend y backend de un e-commerce (Ajolote y Grulla) con Java, JavaScript, Bootstrap y GitHub, y coordino al equipo como Scrum Master.",
+        area: "Java · Full Stack · Scrum · Backend"
+    },
+    {
+        periodo: "2025 – 2026",
+        titulo: "Formación continua",
+        descripcion: "Cursos de Cisco (Python Essentials 1 e Introduction to Cybersecurity), Introducción a Java con Accenture, el propedéutico de IA de INFOTEC y la certificación Scrum Fundamentals de SCRUMstudy.",
+        area: "Python · Java · Ciberseguridad · IA · Scrum"
+    },
+    {
+        periodo: "Sep – Dic 2026",
+        titulo: "Bootcamp Generation México",
+        descripcion: "Bootcamp de Desarrollador Java Full Stack en Generation México, donde fortalezco mi perfil de desarrollador con enfoque en backend y desarrollo web con Java.",
+        area: "Java · Full Stack · Backend · Desarrollo web"
+    }
+];
     // Obtener los elementos del HTML
     const marcadores = [...document.querySelectorAll(".race-marker")];
 
@@ -126,6 +137,49 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!marcadores.length || !periodo || !titulo || !descripcion || !area) {
         return;
     }
+
+
+
+// Línea morada que recorre el circuito hasta la etapa elegida
+const pista = document.querySelector(".race-track");
+const largoTotal = pista.getTotalLength();
+
+const linea = pista.cloneNode();
+linea.setAttribute("class", "race-linea");
+linea.setAttribute("stroke", "#a855f7");
+linea.setAttribute("stroke-width", "9");
+linea.style.strokeLinecap = "butt";
+linea.style.transition = "stroke-dasharray .6s ease";
+linea.style.filter = "drop-shadow(0 0 5px rgba(168, 85, 247, .7))";
+marcadores[0].before(linea);
+
+// Qué tan lejos del inicio de la pista queda cada marcador
+const posiciones = marcadores.map((marcador) => {
+    const c = marcador.querySelector("circle");
+    const x = c.cx.baseVal.value;
+    const y = c.cy.baseVal.value;
+    let mejor = 0;
+    let menor = Infinity;
+
+    for (let largo = 0; largo <= largoTotal; largo += 2) {
+        const punto = pista.getPointAtLength(largo);
+        const distancia = Math.hypot(punto.x - x, punto.y - y);
+        if (distancia < menor) {
+            menor = distancia;
+            mejor = largo;
+        }
+    }
+    return mejor;
+});
+
+function trazarLinea(indice) {
+    const inicio = posiciones[0];
+    const tramo = posiciones[indice] - inicio;
+    linea.style.strokeDasharray = `0 ${inicio} ${tramo} ${largoTotal}`;
+}
+
+
+
 
     // Primera etapa seleccionada
     let etapaActual = 0;
@@ -146,7 +200,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Actualizar número de sector
         sector.textContent =
-            `SECTOR ${String(etapaActual + 1).padStart(2, "0")} / 05`;
+            sector.textContent =
+          `SECTOR ${String(etapaActual + 1).padStart(2, "0")} / ${String(etapas.length).padStart(2, "0")}`;
 
         // Actualizar barra de progreso
         progreso.style.width =
@@ -154,6 +209,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Actualizar marcador activo
         marcadores.forEach((marcador, i) => {
+
+            trazarLinea(etapaActual);
 
             const activo = i === etapaActual;
 

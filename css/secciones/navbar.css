@@ -38,8 +38,8 @@
 
 /* Al pasar el mouse: el texto se pone azul claro y el borde azul */
 .boton-navegacion:hover {
-  color: var(--azul-rusell);
-  border-color: var(--azul-kimmi);
+  color: var(--verde-petronas);
+  border-color: transparent;
 }
 
 /* En pantallas medianas o grandes, dejo espacio a la derecha de la barra

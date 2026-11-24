@@ -101,6 +101,58 @@
     color: #121214;
 }
 
+/* MODELO 3D */
+
+/* La columna derecha se divide en dos: el texto a la izquierda y el modelo
+   a la derecha. La última fila (1fr) absorbe el espacio que sobre, para que
+   los tres bloques de texto no se separen entre sí */
+.proyecto-columna-derecha {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto 1fr;
+    column-gap: 2rem;
+    align-items: start;
+}
+
+/* Todo lo que no sea el visor (descripción, participación y tecnologías)
+   va en la primera columna */
+.proyecto-columna-derecha > *:not(model-viewer) {
+    grid-column: 1;
+}
+
+/* El visor ocupa la segunda columna y abarca las tres filas de texto.
+   Para cambiar su tamaño, modifica la altura */
+.visor-modelo-3d {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+    width: 100%;
+    height: 320px;
+    background-color: transparent;
+}
+
+/* Cuando el visor está oculto (proyectos sin modelo) no ocupa espacio */
+.visor-modelo-3d[hidden] {
+    display: none;
+}
+
+/* Si el proyecto no tiene modelo, el texto usa todo el ancho de la columna */
+.proyecto-columna-derecha:has(.visor-modelo-3d[hidden]) {
+    grid-template-columns: 1fr;
+}
+
+@media (max-width: 991px) {
+    /* En pantallas medianas y pequeñas el modelo pasa debajo del texto */
+    .proyecto-columna-derecha {
+        grid-template-columns: 1fr;
+    }
+
+    .visor-modelo-3d {
+        grid-column: 1;
+        grid-row: auto;
+        margin-top: 1.5rem;
+    }
+}
+
 @media (max-width: 768px) {
     .descripcion-proyectos {
         padding: 30px 0;

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -16,6 +15,9 @@
     <script src="https://kit.fontawesome.com/4d93aa050a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
           
+    <script type="module"
+        src="https://cdn.jsdelivr.net/npm/@google/model-viewer@3.5.0/dist/model-viewer.min.js">
+    </script>
 </head>
 
 <body class="d-flex flex-column min-vh-100">
@@ -62,14 +64,13 @@
     <div class="container-fluid px-4 px-lg-5">
         <div class="row g-5">
 
-            <div class="col-lg-9 text-center text-lg-start">
+            <div class="col-lg-8 text-center text-lg-start">
+
                 <div class="panel-telemetria">
 
-                    <div class="panel-telemetria-encabezado">
-                        <span>Full Stack Java Jr.</span>
-                    </div>
+                   
 
-                    <h1>Alan Cruz</h1>
+                    <h1>Full Stack Developer Java Jr.</h1>
                     <p class="frase-presentacion">
                         Desarrollador apasionado por la tecnología, la robótica y la creación de soluciones innovadoras
                     </p>
@@ -84,7 +85,7 @@
                         <a class="btn boton-ver-proyectos" href="#proyectos">
                             Ver proyectos <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
                         </a>
-                        <a class="btn boton-descargar-cv" href="/assets/perfil/Docs/CVALANCRUZ.pdf" download>
+                        <a class="btn boton-descargar-cv" href="assets/perfil/Docs/CVALANCRUZ.pdf" download>
                             <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i> Descargar CV
                         </a>
                     </div>
@@ -93,33 +94,31 @@
                 </div>
             </div>
 
-            <div class="col-lg-3 text-center">
-                <div class="panel-telemetria ai-agent-container">
-                    <div class="panel-telemetria-encabezado">
-                        <span>IXTLANCITO</span>
-                    </div>
 
-                    <div class="video-wrapper position-relative mt-3">
-                        <video autoplay loop muted playsinline class="w-100 rounded-4 shadow-lg">
-                            <source src="assets/videos/ixnegro.MP4" type="video/mp4">
-                            Tu navegador no soporta el elemento de video.
-                        </video>
+ <div class="col-12 col-md-6 col-lg-4 mx-auto columna-foto-perfil">
+     <div class="contenedor-foto-perfil driver-card-toggle mx-auto">
+        <div class="driver-card-inner">
+             <div class="driver-card-front">
+                             <img class="foto-perfil"
+                              src="assets/perfil/fotos/alan.png"
+                                alt="Fotografía de Alan Cruz">
 
-                        <div class="hud-indicator">
-                            <span class="pulse-dot"></span> ONLINE
-                        </div>
-                    </div>
+                <div class="marco-nombre-foto">
+                    <span class="esquina esquina-superior-izquierda"></span>
+                    <span class="esquina esquina-superior-derecha"></span>
+                    <span class="esquina esquina-inferior-izquierda"></span>
+                    <span class="esquina esquina-inferior-derecha"></span>
+                    <p class="nombre-sobre-foto">ALAN<br>CRUZ</p>
                 </div>
             </div>
-
         </div>
+    </div>
+</div>
 
 
 
 <div class="stack-tecnologias">
-                        <div class="stack-tecnologias-encabezado">
-                            <span>Stack tecnológico</span>
-                        </div>
+                        
 
                         <div class="carrusel-tecnologias" aria-label="Tecnologías que manejo">
                             <div class="carrusel-tecnologias-pista">
@@ -164,7 +163,7 @@
     <div class="container-fluid px-4 px-lg-5">
 
         <div class="driver-profile-encabezado">
-            <span class="driver-kicker">DRIVER PROFILE // 001</span>
+            <span class="driver-kicker">MI ASISTENTE IA</span>
         </div>
 
         <div class="row g-4 g-xl-5 align-items-center driver-track-layout">
@@ -184,38 +183,28 @@
 
                         <div class="driver-card-face driver-card-front">
                             
-                    <img src="assets/perfil/alan-port.png" alt="Fotografía de Alan Cruz">
+                    <video class="w-100 h-100 d-block object-fit-cover"
+                         autoplay loop muted playsinline
+                         aria-hidden="true">
+                            <source src="assets/videos/ixnegro.MP4" type="video/mp4">
+                    </video>
 
-                    <img class="logo-fondo-foto"
-                         src="assets/identidad/logo.png"
-                         alt="" aria-hidden="true">
+                    
 
                     <div class="marco-nombre-foto">
                         <span class="esquina esquina-superior-izquierda"></span>
                         <span class="esquina esquina-superior-derecha"></span>
                         <span class="esquina esquina-inferior-izquierda"></span>
                         <span class="esquina esquina-inferior-derecha"></span>
-                        <p class="nombre-sobre-foto">ALAN<br>CRUZ</p>
+                        <p class="nombre-sobre-foto">IXTLANCITO</p>
                     </div>
                 
                         </div>
 
-                        <div class="driver-card-face driver-card-back">
-                            <div class="driver-card-back-content">
-                                <span class="driver-card-back-kicker">DRIVER PROFILE // 001</span>
-                                <span class="driver-card-back-name">ALAN<br>CRUZ</span>
-                                <span class="driver-card-back-line"></span>
-                                <span class="driver-card-back-label">ENGINEERING</span>
-                                <span class="driver-card-back-label">SOFTWARE</span>
-                                <span class="driver-card-back-label">ROBOTICS</span>
-                                <span class="driver-card-back-action">VIEW CAREER</span>
-                            </div>
-                        </div>
+                        
 
                     </div>
                 </div>
-
-                <p class="foto-caption">ENGINEERING // SOFTWARE // ROBOTICS</p>
             </div>
 
             <div class="col-12 col-md-8 col-xl-9 driver-track-column">
@@ -422,11 +411,27 @@
 
     <!-- Etapa 5: en la curva del estadio, al final de la vuelta -->
     <g class="race-marker" data-stage="4"
-       role="button" tabindex="0"
-       aria-label="Etapa 5: Desarrollo de software"
-       aria-pressed="false">
+        role="button" tabindex="0"
+        aria-label="Etapa 5: Desarrollo de software"
+        aria-pressed="false">
+        <circle cx="300" cy="175" r="15"/>
+        <text x="300" y="179">05</text>
+    </g>
+
+    <g class="race-marker" data-stage="5"
+        role="button" tabindex="0"
+        aria-label="Etapa 6: Formación continua"
+        aria-pressed="false">
         <circle cx="104" cy="116" r="15"/>
-        <text x="104" y="120">05</text>
+        <text x="104" y="120">06</text>
+    </g>
+
+    <g class="race-marker" data-stage="6"
+        role="button" tabindex="0"
+        aria-label="Etapa 7: Bootcamp Generation México"
+        aria-pressed="false">
+        <circle cx="150" cy="75" r="15"/>
+        <text x="150" y="79">07</text>
     </g>
 </svg>
 
@@ -541,9 +546,7 @@
 <!-- DESCRIPCIÓN DINÁMICA DE PROYECTOS -->
 <section id="descripcion-proyectos" class="descripcion-proyectos">
     <div class="container-fluid px-4 px-lg-5">
-        <!-- align-items-start: ambas columnas empiezan arriba.
-             Antes era align-items-center y por eso el texto de la izquierda
-             quedaba más abajo que la descripción de la derecha. -->
+        <!-- align-items-start: ambas columnas empiezan arriba -->
         <div class="row g-5 align-items-start">
 
             <!-- Columna izquierda: año, título, categoría y botones -->
@@ -571,8 +574,10 @@
                 </div>
             </div>
 
-            <!-- Columna derecha: descripción, participación y tecnologías -->
-            <div class="col-lg-8">
+            <!-- Columna derecha: el texto queda a la izquierda y el modelo 3D a la derecha.
+                 La clase proyecto-columna-derecha reparte ese espacio con CSS grid
+                 (las reglas están en css/secciones/proyectos-detalle.css) -->
+            <div class="col-lg-8 proyecto-columna-derecha">
                 <p id="proyecto-descripcion"></p>
 
                 <div class="proyecto-participacion">
@@ -581,7 +586,19 @@
                 </div>
 
                 <div id="proyecto-tecnologias" class="proyecto-tecnologias"></div>
+
+                <!-- Visor del modelo 3D. Empieza oculto y proyectos.js lo muestra
+                     solo en los proyectos que tienen el campo "modelo" -->
+                <model-viewer
+                    id="proyecto-modelo-3d"
+                    class="visor-modelo-3d"
+                    alt="Modelo 3D del robot"
+                    camera-controls
+                    auto-rotate
+                    hidden>
+                </model-viewer>
             </div>
+
         </div>
     </div>
 </section>
