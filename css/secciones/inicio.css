@@ -1,51 +1,45 @@
-/* ========== SECCIÓN DE INICIO ========== */
 
-/* position: relative para poder colocar el fondo animado con
-   position: absolute dentro de la sección. overflow: hidden recorta lo
-   que se sale por los lados mientras las franjas se deslizan */
+/* =========================================================
+   SECCIÓN DE INICIO
+   ========================================================= */
+
+/* Contenedor principal de la presentación */
 .seccion-presentacion {
+  padding-bottom: 1rem;
   position: relative;
   overflow: hidden;
-  /* Ocupa al menos toda la pantalla menos la barra (unos 4.5rem), así
-     los proyectos quedan abajo del primer vistazo */
   min-height: calc(100vh - 4.5rem);
   min-height: calc(100dvh - 4.5rem);
   display: flex;
   align-items: center;
+  box-sizing: border-box;
 }
 
-
-/* Nombre principal, lo más grande de la página. El color blanco destaca
-   sobre el fondo negro */
+/* Nombre principal */
 .seccion-presentacion h1 {
   color: var(--blanco);
   font-weight: 600;
-  /* Responsivo: entre 2.5rem en celular y 5.5rem en pantallas grandes.
-     10vw es el 10% del ancho de la ventana */
   font-size: clamp(2.5rem, 10vw, 5.5rem);
   line-height: 1;
   margin-bottom: 1rem;
 }
 
-/* Frase corta debajo del nombre */
+/* Frase debajo del nombre */
 .frase-presentacion {
   color: var(--plata);
-  /* Letras separadas, se ve más técnico */
   letter-spacing: 0.15em;
-  /* Responsivo: entre 0.75rem y 1.1rem */
   font-size: clamp(0.75rem, 0.65rem + 0.5vw, 1.1rem);
   margin-bottom: 0;
 }
 
-/* Contenedor del nombre, la frase y los datos. No lleva borde ni fondo,
-   solo da espacio arriba y abajo */
+/* Contenedor del nombre, frase y datos */
 .panel-telemetria {
   display: block;
   max-width: 100%;
   padding: clamp(1rem, 2.5vw, 2rem) 0;
 }
 
-/* Franja de arriba del panel: texto a la izquierda y estado a la derecha */
+/* Encabezado del panel de presentación */
 .panel-telemetria-encabezado {
   display: flex;
   justify-content: space-between;
@@ -54,62 +48,58 @@
   color: var(--verde-petronas);
   font-size: 1rem;
   text-transform: uppercase;
-  /* Letras muy separadas, se ve más técnico */
   letter-spacing: 0.2em;
   padding-bottom: 0.75rem;
   margin-bottom: 1.25rem;
   border-bottom: transparent;
 }
 
-/* Cuando las columnas se apilan (menos de 992px), la franja de arriba se
-   centra, igual que el nombre y la frase. Va justo debajo de la regla
-   de arriba porque las dos tienen la misma fuerza y gana la que va después */
+/* Centra el encabezado en pantallas medianas y pequeñas */
 @media (max-width: 991.98px) {
   .panel-telemetria-encabezado {
     justify-content: center;
   }
 }
 
-/* Fila de datos: tres columnas */
+/* Datos de presentación: tres columnas */
 .datos-telemetria {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   margin: 1.5rem 0 0;
 }
 
-/* Cada dato, con una línea vertical que lo separa del anterior */
+/* Distribución de cada dato */
 .dato-telemetria {
-  padding: 0 .25rem;
-  text-align: center;
-  /* Centra el texto en horizontal y en vertical dentro de su columna */
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0 0.25rem;
+  text-align: center;
 }
 
-/* Los tres llevan el mismo espacio a los lados para quedar centrados */
 .dato-telemetria:first-child {
   padding-left: 1.25rem;
 }
 
+/* Separadores verticales */
 .dato-telemetria + .dato-telemetria {
   border-left: 1px solid var(--azul-rusell);
 }
 
-/* Cada dato se ilumina al pasar el mouse. Solo con mouse, para que en
-   celular no se quede iluminado */
+/* Transición del efecto de iluminación */
 .dato-brillo dd {
   transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
-@media (hover: hover) {
+/* Iluminación exclusivamente con cursor */
+@media (hover: hover) and (pointer: fine) {
   .dato-brillo:hover dd {
     color: var(--verde-petronas-ok);
     text-shadow: 0 0 12px rgba(0, 240, 255, 0.6);
   }
 }
 
-/* Etiqueta: azul claro, chica y en mayúsculas */
+/* Etiquetas de los datos */
 .datos-telemetria dt {
   margin: 0 0 0.35rem;
   color: var(--azul-rusell);
@@ -119,7 +109,7 @@
   letter-spacing: 0.2em;
 }
 
-/* Valor: plata, un poco más grande y en semi-negritas */
+/* Valores de los datos */
 .datos-telemetria dd {
   margin: 0;
   color: var(--plata);
@@ -127,9 +117,8 @@
   font-weight: 600;
 }
 
-/* En celular los datos van uno debajo del otro, y la línea que los
-   separa pasa de vertical a horizontal */
-@media (max-width: 167.98px) {
+/* Datos apilados en celulares */
+@media (max-width: 767.98px) {
   .datos-telemetria {
     grid-template-columns: 1fr;
     gap: 1.5rem;
@@ -149,16 +138,16 @@
   }
 }
 
-/* ---------- Botones del inicio ---------- */
+
+/* =========================================================
+   BOTONES DE PRESENTACIÓN
+   ========================================================= */
 
 .botones-presentacion {
   margin-top: 1.75rem;
 }
 
-/* Lo que comparten los dos botones: esquinas rectas, el ícono alineado
-   con el texto y el barrido de color. La transición anima
-   background-position, que es lo que mueve el degradado. El color del
-   texto y del borde también se animan para que cambien al mismo tiempo */
+/* Estilos compartidos de los botones */
 .boton-ver-proyectos,
 .boton-descargar-cv {
   display: inline-flex;
@@ -170,10 +159,6 @@
   letter-spacing: 0.05em;
   transition: background-position 0.4s ease, color 0.4s ease, border-color 0.4s ease;
 
-  /* Degradado con dos mitades duras (sin mezcla): la izquierda es el
-     color del hover y la derecha el color de reposo. Con
-     background-size: 200% mide el doble del botón, así que solo se ve
-     una mitad a la vez. En reposo se ve la mitad derecha */
   background-color: var(--verde-petronas);
   background-image: linear-gradient(
     to right,
@@ -186,9 +171,7 @@
   color: var(--negro);
 }
 
-/* Al pasar el mouse o llegar con el teclado, el degradado se corre y
-   pasa a verse la mitad izquierda. El color nuevo entra por la izquierda
-   y avanza hacia la derecha, como un barrido */
+/* Efecto de barrido al pasar el cursor o usar el teclado */
 .boton-ver-proyectos:hover,
 .boton-ver-proyectos:focus-visible,
 .boton-descargar-cv:hover,
@@ -198,27 +181,28 @@
   color: var(--blanco);
 }
 
-/* Al pulsar "Ver proyectos" el scroll baja suave. Se desactiva si la
-   persona pidió reducir el movimiento */
+/* Desplazamiento suave entre secciones */
 @media (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;
   }
 }
 
-/* La barra fija no tapa el título de la sección al llegar a ella */
+/* Evita que la barra de navegación tape el título */
 #proyectos {
-  scroll-margin-top: 4.5rem;
+  scroll-margin-top: 0rem;
 }
 
-/* ---------- Stack tecnológico ---------- */
 
-/* Bloque con una línea fina arriba que lo separa de los botones */
+/* =========================================================
+   STACK TECNOLÓGICO
+   ========================================================= */
+
 .stack-tecnologias {
   margin-top: 2rem;
 }
 
-/* Título a la izquierda y ayuda a la derecha */
+/* Encabezado del stack */
 .stack-tecnologias-encabezado {
   display: flex;
   justify-content: space-between;
@@ -232,49 +216,46 @@
   letter-spacing: 0.2em;
 }
 
-/* La ayuda va en verde y sin mayúsculas */
+/* Texto de ayuda */
 .stack-tecnologias-ayuda {
   color: var(--verde-petronas);
   text-transform: none;
   letter-spacing: 0.05em;
 }
 
-/* En pantallas táctiles no hay cursor, así que la ayuda no se muestra */
+/* Oculta la ayuda en dispositivos táctiles */
 @media (hover: none) {
   .stack-tecnologias-ayuda {
     display: none;
   }
 }
 
-/* Cuando el texto va centrado (menos de 992px), el título también */
+/* Centra el encabezado en pantallas medianas y pequeñas */
 @media (max-width: 991.98px) {
   .stack-tecnologias-encabezado {
     justify-content: center;
   }
 }
 
-/* ---------- Carrusel de tecnologías ---------- */
 
-/* Ventana por la que se ve pasar la lista. overflow: hidden esconde lo
-   que se sale por los lados. La máscara desvanece los bordes izquierdo
-   y derecho (8% de cada lado). La línea -webkit- es para Safari */
+/* =========================================================
+   CARRUSEL DE TECNOLOGÍAS
+   ========================================================= */
+
+/* Ventana visible del carrusel */
 .carrusel-tecnologias {
+  margin-top: 2rem;
   overflow: hidden;
   -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
   mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
 }
 
-/* Fila que contiene los dos grupos, uno al lado del otro */
+/* Pista que contiene los grupos */
 .carrusel-tecnologias-pista {
   display: flex;
 }
 
-/* Cada grupo mide como mínimo todo el ancho de la ventana (min-width: 100%),
-   por eso nunca queda un hueco. flex-shrink: 0 evita que se encoja, y
-   justify-content reparte los íconos por todo el ancho. La animación lo
-   mueve hacia la izquierda exactamente su propio ancho (-100%): al terminar,
-   el segundo grupo está donde estaba el primero, y como son idénticos, el
-   reinicio no se nota */
+/* Grupos de tecnologías */
 .carrusel-tecnologias-grupo {
   display: flex;
   flex-shrink: 0;
@@ -287,15 +268,18 @@
   animation: desplazar-tecnologias 45s linear infinite;
 }
 
+/* Movimiento continuo del carrusel */
 @keyframes desplazar-tecnologias {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-100%); }
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
 }
 
-/* Cada tecnología: el ícono arriba y el nombre debajo. El tamaño del
-   ícono y el color van aquí, en el li, y no en el <i>: el kit de Font
-   Awesome cambia el <i> por un <svg>, y el svg hereda el tamaño y el
-   color de su contenedor */
+/* Elementos individuales del carrusel */
 .carrusel-tecnologias-grupo li {
   display: flex;
   flex-direction: row;
@@ -309,18 +293,15 @@
   transition: color 0.25s ease, opacity 0.25s ease;
 }
 
-/* Nombre debajo del ícono. Su tamaño se define aparte porque el li usa
-   3rem para el ícono */
+/* Nombre de cada tecnología */
 .carrusel-tecnologias-grupo li span {
   font-size: 0.7rem;
   letter-spacing: 0.1em;
   line-height: 1.2;
 }
 
-/* Solo con mouse: al pasar encima, el carrusel se pausa y la tecnología
-   se ilumina. En celular no se pausa, para que no se quede detenido al
-   tocarlo */
-@media (hover: hover) {
+/* Pausa e iluminación exclusivamente con cursor */
+@media (hover: hover) and (pointer: fine) {
   .carrusel-tecnologias:hover .carrusel-tecnologias-grupo {
     animation-play-state: paused;
   }
@@ -329,13 +310,13 @@
     color: var(--verde-petronas-ok);
     opacity: 1;
   }
+
   .carrusel-tecnologias-grupo li:hover span {
-  color: var(--blanco);
+    color: var(--blanco);
   }
 }
 
-/* Con "reducir movimiento" no se desplaza: se muestra un solo grupo
-   quieto y se oculta la copia */
+/* Respeta la preferencia de movimiento reducido */
 @media (prefers-reduced-motion: reduce) {
   .carrusel-tecnologias-grupo {
     animation: none;
@@ -348,57 +329,55 @@
   }
 }
 
-/* ========== FOTO DE PERFIL ========== */
-/* Contenedor de la foto de perfil. Por defecto (celular y tablet) es
-   vertical */
+
+/* =========================================================
+   FOTO DE PERFIL
+   ========================================================= */
+
+/* Contenedor compartido por las tarjetas de perfil */
 .contenedor-foto-perfil {
   max-width: 320px;
   position: relative;
   overflow: hidden;
-  /* Proporción vertical de 5 de ancho por 7 de alto, parecida a la de la
-     foto original, así se ve completa y casi no se recorta */
   aspect-ratio: 5 / 7;
-  /* Solo la esquina de abajo a la derecha es redonda */
   border-radius: 0 0 2rem 0;
-  /* Fondo que se ve en el espacio donde no hay foto. Los colores imitan
-     el fondo de la foto: negro arriba y verde azulado abajo */
-  background: linear-gradient(180deg, #020808 0%, #0B2A28 30%, #015a5d 60%, #026c6a 100%);
+  background: linear-gradient(
+    180deg,
+    #020808 0%,
+    #0B2A28 30%,
+    #015a5d 60%,
+    #026c6a 100%
+  );
 }
 
-/* En vertical la foto llena toda la tarjeta */
-.contenedor-foto-perfil img {
+/* Imagen o video dentro de la tarjeta */
+.contenedor-foto-perfil img,
+.contenedor-foto-perfil video {
   width: 100%;
   height: 100%;
-  /* cover llena la forma sin deformar la foto. object-position mantiene
-     la parte de arriba, donde está la cara */
   object-fit: cover;
   object-position: center top;
   display: block;
 }
 
-/* En pantallas grandes (992px o más) la tarjeta es más ancha que alta.
-   La posición y el tamaño de la foto se definen en el CSS de
-   driver-profile (img.foto-perfil), por eso aquí solo cambia la
-   proporción de la tarjeta */
+/* Ajuste de proporción para pantallas extremadamente anchas */
 @media (min-width: 3092px) {
   .contenedor-foto-perfil {
-    /* 4 / 5 es más alta que ancha. Para hacerla más alta usa 3 / 4;
-       para hacerla más baja, 1 / 1 */
     aspect-ratio: 4.5 / 5;
   }
 }
 
-/* ========== NOMBRE SOBRE LA FOTO ========== */
 
-/* Convierte la columna en "contenedor". Gracias a esto, las unidades cqw
-   (1% del ancho del contenedor) se calculan con el ancho de la foto y no
-   con el de la pantalla */
+/* =========================================================
+   NOMBRE SOBRE LA FOTO
+   ========================================================= */
+
+/* Permite calcular el tamaño del texto según el ancho de la columna */
 .columna-foto-perfil {
   container-type: inline-size;
 }
 
-/* Marco del nombre, pegado arriba a la izquierda de la tarjeta.
-   z-index: 1 lo deja detrás de la foto (la foto usa z-index: 2) */
+/* Marco que contiene el nombre */
 .marco-nombre-foto {
   --tamano-esquina: 1.5rem;
   position: absolute;
@@ -408,8 +387,7 @@
   z-index: 1;
 }
 
-/* Estilos que comparten las cuatro esquinas. Cada una es un cuadrito con
-   borde, y a cada una le quito dos lados para que quede solo una "L" */
+/* Estilo compartido de las esquinas */
 .esquina {
   position: absolute;
   width: var(--tamano-esquina);
@@ -417,6 +395,7 @@
   border: 2px solid var(--blanco);
 }
 
+/* Esquina superior izquierda */
 .esquina-superior-izquierda {
   top: 0;
   left: 0;
@@ -424,6 +403,7 @@
   border-bottom: 0;
 }
 
+/* Esquina superior derecha */
 .esquina-superior-derecha {
   top: 0;
   right: 0;
@@ -431,6 +411,7 @@
   border-bottom: 0;
 }
 
+/* Esquina inferior izquierda */
 .esquina-inferior-izquierda {
   bottom: 0;
   left: 0;
@@ -438,6 +419,7 @@
   border-top: 0;
 }
 
+/* Esquina inferior derecha */
 .esquina-inferior-derecha {
   bottom: 0;
   right: 0;
@@ -445,8 +427,7 @@
   border-top: 0;
 }
 
-/* Nombre sobre la foto: 7% del ancho de la tarjeta, entre 1.25rem
-   y 2rem */
+/* Nombre sobre la fotografía */
 .nombre-sobre-foto {
   color: var(--blanco);
   font-weight: 700;
@@ -455,27 +436,31 @@
   margin: 0;
 }
 
-/* ============ CARRUSEL DE PROYECTOS CHICO ============ */
 
+/* =========================================================
+   CARRUSEL DE PROYECTOS
+   ========================================================= */
+
+/* Fila que contiene la galería y el texto */
 .proyectos-fila {
   display: flex;
   gap: 0.5rem;
-  padding: 3rem 1.5rem;
 }
 
+/* Columna principal de la galería */
 .proyectos-galeria {
   flex: 8;
   min-width: 0;
 }
 
+/* Columna del texto */
 .proyectos-texto {
   flex: 2;
   align-self: center;
   text-align: center;
 }
 
-/* Color del título "Proyectos". El h1 heredaba el color oscuro de
-   Bootstrap, por eso casi no se veía sobre el fondo gris. */
+/* Título de proyectos */
 .proyectos-texto h1 {
   color: var(--verde-electrico);
   margin: 0;
@@ -483,603 +468,63 @@
 
 
 /* =========================================================
-   SECCIÓN SOBRE MÍ (perfil + trayectoria)
-   Estilos aislados para no interferir con Ixtlán ni proyectos
+   TARJETA INTERACTIVA DE PERFIL
    ========================================================= */
 
-/* Menos espacio arriba para que el contenido suba */
-.driver-profile.driver-combined {
-    padding: clamp(1.5rem, 3vw, 2.5rem) 0 2.5rem;
-    color: var(--plata);
-    background:
-        radial-gradient(ellipse at 15% 50%, rgba(0, 161, 155, 0.10), transparent 42%),
-        #0a0a0c;
-    border-top: 1px solid rgba(2, 245, 208, 0.25);
-}
-
-.driver-profile-encabezado {
-    margin-bottom: 1rem;
-}
-
-.driver-kicker {
-    color: var(--verde-petronas);
-    font-size: .72rem;
-    font-weight: 700;
-    letter-spacing: .22em;
-}
-
-.driver-profile .row {
-    margin-top: 1rem;
-}
-
-.driver-profile .nombre-sobre-foto {
-    letter-spacing: .04em;
-    font-size: clamp(1.1rem, 5.5cqw, 1.6rem);
-}
-
-.foto-caption {
-    margin: .9rem 0 0;
-    color: rgba(200, 204, 206, .55);
-    font-size: .62rem;
-    letter-spacing: .17em;
-    text-align: center;
-}
-
-.etiqueta-seccion {
-    margin-bottom: .8rem;
-    color: var(--verde-petronas);
-    font-size: .72rem;
-    letter-spacing: .2em;
-    text-transform: uppercase;
-}
-
-.driver-titulo {
-    max-width: 800px;
-    color: var(--blanco);
-    font-size: clamp(2rem, 4.7vw, 4.4rem);
-    font-weight: 700;
-    line-height: 1.05;
-}
-
-.driver-titulo span {
-    color: var(--verde-petronas);
-}
-
-.driver-profile .texto-sobre-mi {
-    max-width: 760px;
-    color: rgba(200, 204, 206, .82);
-    font-size: clamp(.95rem, 1.2vw, 1.08rem);
-    line-height: 1.85;
-}
-
-.driver-datos {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1rem;
-    padding: 1.2rem 0;
-    border-top: 1px solid rgba(200, 204, 206, .2);
-    border-bottom: 1px solid rgba(200, 204, 206, .2);
-}
-
-.driver-dato {
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;
-    min-width: 0;
-}
-
-.driver-dato span {
-    color: var(--verde-petronas);
-    font-size: .62rem;
-    letter-spacing: .15em;
-}
-
-.driver-dato strong {
-    color: var(--blanco);
-    font-size: .88rem;
-    font-weight: 600;
-}
-
-#sobre-mi,
-#trayectoria {
-    scroll-margin-top: 5.5rem;
-}
-
-
-/* ---------- Foto y circuito en la misma fila ---------- */
-
-/* La fila ya es flex y centrada por Bootstrap; aquí solo se evita que
-   las columnas bajen de línea */
-.driver-track-layout {
-    flex-wrap: nowrap;
-}
-
-.driver-track-layout > .columna-foto-perfil {
-    flex: 0 0 40%;
-    max-width: 40%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-}
-
-.driver-track-layout > .driver-track-column {
-    flex: 0 0 60%;
-    max-width: 60%;
-    min-width: 0;
-}
-
-/* Tarjeta de la foto: ancho máximo, pegada a la derecha de su columna */
-.driver-combined .contenedor-foto-perfil {
-    width: min(100%, 560px);
-    max-width: 560px;
-    margin-left: auto;
-}
-
-.driver-combined .foto-caption {
-    width: min(100%, 560px);
-}
-
-.driver-bio-below {
-    width: 100%;
-}
-
-.driver-bio-below .driver-titulo {
-    margin: .5rem 0 1rem;
-}
-
-.driver-bio-below .driver-bio-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 2rem;
-}
-
-.driver-bio-grid .texto-sobre-mi {
-    margin-bottom: .7rem;
-}
-
-.driver-bio-below .driver-datos {
-    margin-top: 1.5rem;
-}
-
-
-/* ---------- Panel Sobre mí / Trayectoria ---------- */
-
-/* Las dos vistas ocupan el mismo espacio y solo se ve la activa.
-   trayectoria.js cambia la clase is-active entre las dos */
-.driver-panel {
-    display: grid;
-    align-items: start;
-    min-width: 0;
-}
-
-.driver-view {
-    grid-area: 1 / 1;
-    min-width: 0;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transform: translateY(12px);
-    transition: opacity .4s ease, transform .4s ease, visibility 0s linear .4s;
-}
-
-.driver-view.is-active {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    transform: translateY(0);
-    transition: opacity .4s ease, transform .4s ease, visibility 0s;
-}
-
-
-/* ---------- Trayectoria (circuito compacto) ---------- */
-
-.race-compact {
-    width: 100%;
-    scroll-margin-top: 5rem;
-}
-
-.race-compact-heading {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 1rem;
-    margin-bottom: .6rem;
-}
-
-.race-compact-heading h3 {
-    margin: .25rem 0 0;
-    color: var(--blanco);
-    font-size: clamp(1.25rem, 2vw, 1.8rem);
-    font-weight: 700;
-}
-
-.race-compact-heading h3 span {
-    color: var(--verde-petronas);
-}
-
-.race-circuit-data {
-    display: flex;
-    flex-direction: column;
-    gap: .3rem;
-    text-align: right;
-}
-
-.race-circuit-data strong {
-    color: var(--blanco);
-    font-size: .8rem;
-    letter-spacing: .08em;
-}
-
-.race-compact-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1.5fr) minmax(205px, .8fr);
-    gap: 1rem;
-    align-items: stretch;
-}
-
-.race-compact .race-map-wrap {
-    min-width: 0;
-    padding: .7rem .8rem .5rem;
-    background: rgba(255, 255, 255, .025);
-    border: 1px solid rgba(200, 204, 206, .12);
-}
-
-.race-map-label {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: .15rem;
-    color: var(--plata);
-    font-size: .65rem;
-    letter-spacing: .15em;
-}
-
-.race-map-label span {
-    color: var(--verde-petronas);
-}
-
-.race-compact .race-map {
-    display: block;
-    width: 100%;
-    height: auto;
-    max-height: 235px;
-    overflow: visible;
-}
-
-/* El !important gana sobre los atributos que el SVG trae escritos
-   directamente en el HTML */
-.race-compact .race-track-shadow,
-.race-compact .race-track {
-    fill: none !important;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-}
-
-.race-compact .race-track-shadow {
-    stroke: rgba(0, 210, 190, .16) !important;
-    stroke-width: 20 !important;
-}
-
-.race-compact .race-track {
-    stroke: #c8ccce !important;
-    stroke-width: 9 !important;
-}
-
-.race-start-line {
-    stroke: var(--verde-petronas);
-    stroke-width: 5;
-}
-
-.race-compact .race-svg-label {
-    fill: rgba(255, 255, 255, .7);
-    font: 10px sans-serif;
-    letter-spacing: 1.4px;
-}
-
-.race-compact .race-foro {
-    fill: var(--verde-petronas);
-    font-weight: 700;
-}
-
-.race-marker {
-    cursor: pointer;
-    outline: none;
-}
-
-.race-marker circle {
-    transition: fill .2s ease, r .2s ease, filter .2s ease;
-}
-
-.race-compact .race-marker circle {
-    fill: #101214 !important;
-    stroke: var(--verde-petronas) !important;
-    stroke-width: 2.5;
-}
-
-.race-compact .race-marker text {
-    fill: #fff;
-    font: 700 10px sans-serif;
-    text-anchor: middle;
-    pointer-events: none;
-}
-
-/* is-active lo pone trayectoria.js en el marcador de la etapa elegida */
-.race-compact .race-marker:hover circle,
-.race-compact .race-marker:focus-visible circle,
-.race-compact .race-marker.is-active circle {
-    fill: var(--verde-petronas) !important;
-    filter: drop-shadow(0 0 5px rgba(0, 210, 190, .65));
-}
-
-.race-map-legend {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.2rem;
-    padding: 0 .2rem .2rem;
-    color: rgba(200, 204, 206, .65);
-    font-size: .55rem;
-    letter-spacing: .12em;
-}
-
-.race-map-legend span {
-    display: inline-flex;
-    align-items: center;
-    gap: .5rem;
-}
-
-.legend-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--verde-petronas);
-}
-
-.legend-line {
-    width: 18px;
-    height: 3px;
-    background: #c8ccce;
-}
-
-/* Panel de detalle de la etapa */
-.race-detail {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 1rem 1.1rem;
-    border-left: 2px solid var(--verde-petronas);
-    background: linear-gradient(135deg, rgba(2, 245, 208, .07), rgba(255, 255, 255, .015));
-}
-
-.race-detail-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: .5rem;
-    color: var(--verde-petronas);
-    font-size: .65rem;
-    letter-spacing: .13em;
-}
-
-.race-detail-flag {
-    color: rgba(200, 204, 206, .5);
-}
-
-.race-period {
-    margin: .9rem 0 .4rem;
-    color: var(--verde-petronas);
-    font-size: .8rem;
-    letter-spacing: .12em;
-}
-
-.race-detail h4 {
-    margin-bottom: .55rem;
-    color: var(--blanco);
-    font-size: 1.15rem;
-    font-weight: 700;
-}
-
-.race-detail #race-description {
-    margin-bottom: .3rem;
-    color: rgba(200, 204, 206, .8);
-    font-size: .8rem;
-    line-height: 1.55;
-}
-
-.race-detail-divider {
-    height: 1px;
-    margin: .7rem 0;
-    background: rgba(200, 204, 206, .2);
-}
-
-.race-detail-label {
-    color: var(--verde-petronas);
-    font-size: .62rem;
-    letter-spacing: .16em;
-}
-
-.race-area {
-    margin: .25rem 0 .8rem;
-    color: var(--blanco);
-    font-size: .75rem;
-}
-
-.race-controls {
-    display: flex;
-    align-items: center;
-    gap: .8rem;
-}
-
-.race-controls button {
-    display: grid;
-    place-items: center;
-    width: 31px;
-    height: 31px;
-    flex: 0 0 31px;
-    border: 1px solid rgba(2, 245, 208, .55);
-    border-radius: 0;
-    background: transparent;
-    color: var(--verde-petronas);
-    transition: background .2s ease, color .2s ease;
-}
-
-.race-controls button:hover {
-    background: var(--verde-petronas);
-    color: #000;
-}
-
-.race-progress {
-    height: 3px;
-    flex: 1;
-    background: rgba(200, 204, 206, .2);
-}
-
-.race-progress span {
-    display: block;
-    width: 20%;
-    height: 100%;
-    background: var(--verde-petronas);
-    transition: width .3s ease;
-}
-
-
-/* ---------- Pantallas medianas y chicas ---------- */
-
-@media (max-width: 1199.98px) {
-    .race-compact .race-map {
-        max-height: 210px;
-    }
-}
-
-@media (min-width: 768px) and (max-width: 991.98px) {
-    .driver-track-layout > .columna-foto-perfil {
-        flex-basis: 30%;
-        max-width: 30%;
-    }
-
-    .driver-track-layout > .driver-track-column {
-        flex-basis: 70%;
-        max-width: 70%;
-    }
-
-    .race-compact-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 767.98px) {
-    .driver-track-layout {
-        flex-wrap: wrap;
-    }
-
-    .driver-track-layout > .columna-foto-perfil,
-    .driver-track-layout > .driver-track-column {
-        flex: 0 0 100%;
-        max-width: 100%;
-    }
-
-    /* En celular la tarjeta vuelve a quedar centrada */
-    .driver-track-layout > .columna-foto-perfil {
-        align-items: center;
-    }
-
-    .driver-combined .contenedor-foto-perfil {
-        width: min(78%, 300px);
-        margin-inline: auto;
-    }
-
-    .driver-bio-below .driver-bio-grid,
-    .driver-datos,
-    .race-compact-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .driver-dato {
-        padding-bottom: .8rem;
-        border-bottom: 1px solid rgba(200, 204, 206, .12);
-    }
-
-    .driver-dato:last-child {
-        padding-bottom: 0;
-        border-bottom: 0;
-    }
-
-    .race-compact-heading {
-        align-items: flex-start;
-        flex-direction: column;
-    }
-
-    .race-circuit-data {
-        text-align: left;
-    }
-
-    .race-compact .race-map {
-        max-height: none;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .driver-view,
-    .race-marker circle,
-    .race-progress span,
-    .race-controls button {
-        transition: none;
-    }
-}
-
-
-/* =========================================================
-   TARJETA DE LA FOTO
-   Se usa en el inicio y en Sobre mí, por eso no depende de
-   .driver-profile
-   ========================================================= */
-
-/* Al pasar el mouse sube un poco y aparece un brillo verde */
+/* Tarjeta compartida por Inicio y Sobre mí */
 .driver-card-toggle {
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    outline: none;
-    isolation: isolate;
-    transition: transform .35s ease, box-shadow .35s ease;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  outline: none;
+  isolation: isolate;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
-@media (hover: hover) {
-    .driver-card-toggle:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 18px 40px rgba(0, 210, 190, .22);
-    }
+/* Elevación exclusivamente para dispositivos con cursor */
+@media (hover: hover) and (pointer: fine) {
+  .driver-card-toggle:hover {
+    transform: translateY(-8px);
+  }
 }
 
+/* Indicador visible al navegar con teclado */
 .driver-card-toggle:focus-visible {
-    outline: 2px solid var(--verde-petronas);
-    outline-offset: 5px;
+  outline: 2px solid var(--verde-petronas);
+  outline-offset: 5px;
 }
 
-/* Cara frontal: llena toda la tarjeta */
+/* Estructura interna de la tarjeta */
 .driver-card-inner,
 .driver-card-front {
-    position: relative;
-    width: 100%;
-    height: 100%;
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
+/* Cara frontal */
 .driver-card-front {
-    overflow: hidden;
-    border-radius: 0 0 2rem 0;
-    background: linear-gradient(180deg, #020808 0%, #0B2A28 45%, #026c6a 100%);
+  overflow: hidden;
+  border-radius: 0 0 2rem 0;
+  background: linear-gradient(
+    180deg,
+    #020808 0%,
+    #0B2A28 45%,
+    #026c6a 100%
+  );
 }
 
-/* Foto: abajo a la derecha y por encima del nombre (z-index 2; el
-   marco del nombre tiene 1). No afecta al logo de fondo */
+/* Fotografía colocada abajo a la derecha */
 .driver-card-front img:not(.logo-fondo-foto) {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    z-index: 2;
-    width: auto;
-    max-width: 100%;
-    height: 100%;
-    object-fit: contain;
-    object-position: right bottom;
-    -webkit-mask-image: none;
-    mask-image: none;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  width: auto;
+  max-width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: right bottom;
+  -webkit-mask-image: none;
+  mask-image: none;
 }

@@ -1,7 +1,9 @@
-/* ========== IXTLAN STEAMEX ========== */
 
-/* --corte es la inclinación de la diagonal. 40fr 60fr es la proporción:
-   40% texto, 60% carrusel */
+/* =========================================================
+   IXTLAN STEAMEX
+   ========================================================= */
+
+/* Hero: 40% texto y 60% carrusel */
 .ixtlan-hero {
   --corte: 6rem;
   display: grid;
@@ -10,7 +12,7 @@
   min-height: calc(100dvh - 4.5rem);
 }
 
-/* El padding derecho deja espacio para que la diagonal no tape el texto */
+/* Contenido textual del hero */
 .ixtlan-texto {
   display: flex;
   flex-direction: column;
@@ -20,16 +22,16 @@
 }
 
 .ixtlan-texto h1 {
-  color: var(--blanco);
-  font-weight: 700;
-  font-size: clamp(2.5rem, 6vw, 5.5rem);
-  line-height: 1;
   margin-bottom: 1.5rem;
+  color: var(--blanco);
+  font-size: clamp(2.5rem, 6vw, 5.5rem);
+  font-weight: 700;
+  line-height: 1;
 }
 
 .ixtlan-descripcion {
-  color: var(--plata);
   max-width: 32rem;
+  color: var(--plata);
 }
 
 .ixtlan-flecha {
@@ -38,13 +40,14 @@
   transition: color 0.25s ease, transform 0.25s ease;
 }
 
-.ixtlan-flecha:hover {
-  color: var(--azul-rusell);
-  transform: translateY(4px);
+@media (hover: hover) and (pointer: fine) {
+  .ixtlan-flecha:hover {
+    color: var(--azul-rusell);
+    transform: translateY(4px);
+  }
 }
 
-/* La caja se mete a la izquierda lo que mide --corte y clip-path la
-   recorta en diagonal como "/". Su fondo verde es la línea divisoria */
+/* Área visual con división diagonal */
 .ixtlan-visual {
   position: relative;
   margin-left: calc(var(--corte) * -1);
@@ -52,13 +55,16 @@
   clip-path: polygon(var(--corte) 0, 100% 0, 100% 100%, 0 100%);
 }
 
-/* El carrusel se pega a los cuatro bordes de su contenedor, así su
-   tamaño no depende de la foto. Se recorta 5px más adentro y esa franja
-   deja ver el verde */
+/* Carrusel ajustado al contenedor */
 .ixtlan-visual .carousel {
   position: absolute;
   inset: 0;
-  clip-path: polygon(calc(var(--corte) + 5px) 0, 100% 0, 100% 100%, 5px 100%);
+  clip-path: polygon(
+    calc(var(--corte) + 5px) 0,
+    100% 0,
+    100% 100%,
+    5px 100%
+  );
 }
 
 .ixtlan-visual .carousel-inner,
@@ -73,9 +79,12 @@
   object-fit: cover;
 }
 
-/* ---------- Línea del tiempo ---------- */
 
-/* scroll-margin-top evita que la barra fija tape el título al bajar */
+/* =========================================================
+   LÍNEA DEL TIEMPO
+   ========================================================= */
+
+/* Evita que la barra fija cubra el título al navegar */
 .ixtlan-historia {
   padding: clamp(3rem, 8vw, 6rem) 1.5rem;
   scroll-margin-top: 4.5rem;
@@ -83,11 +92,11 @@
 
 .ixtlan-historia h2,
 .ixtlan-aliados h2 {
-  color: var(--blanco);
-  font-weight: 700;
-  font-size: clamp(1.75rem, 4vw, 3rem);
-  text-align: center;
   margin-bottom: clamp(2rem, 5vw, 4rem);
+  color: var(--blanco);
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  font-weight: 700;
+  text-align: center;
 }
 
 .linea-tiempo {
@@ -98,7 +107,7 @@
   list-style: none;
 }
 
-/* Línea vertical al centro que se desvanece en las puntas */
+/* Línea central */
 .linea-tiempo::before {
   content: "";
   position: absolute;
@@ -107,11 +116,16 @@
   left: 50%;
   width: 2px;
   transform: translateX(-50%);
-  background: linear-gradient(to bottom, transparent, var(--verde-petronas) 8%,
-              var(--verde-petronas) 92%, transparent);
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--verde-petronas) 8%,
+    var(--verde-petronas) 92%,
+    transparent
+  );
 }
 
-/* Los hitos impares van a la izquierda de la línea y los pares a la derecha */
+/* Hitos alternados a ambos lados de la línea */
 .hito {
   position: relative;
   width: 50%;
@@ -129,7 +143,7 @@
   padding-bottom: 0;
 }
 
-/* Marcador: rombo azul sobre la línea */
+/* Marcadores de cada hito */
 .hito::before {
   content: "";
   position: absolute;
@@ -167,7 +181,10 @@
   color: var(--plata);
 }
 
-/* ---------- Aliados y patrocinadores ---------- */
+
+/* =========================================================
+   ALIADOS Y PATROCINADORES
+   ========================================================= */
 
 .ixtlan-aliados {
   padding: clamp(3rem, 8vw, 6rem) 1.5rem;
@@ -196,8 +213,10 @@
   transition: border-color 0.25s ease;
 }
 
-.aliado:hover {
-  border-color: var(--azul-rusell);
+@media (hover: hover) and (pointer: fine) {
+  .aliado:hover {
+    border-color: var(--azul-rusell);
+  }
 }
 
 .aliado img {
@@ -206,7 +225,10 @@
   object-fit: contain;
 }
 
-/* ---------- Ixtlan en tablet y celular ---------- */
+
+/* =========================================================
+   RESPONSIVE: TABLET
+   ========================================================= */
 
 @media (max-width: 991.98px) {
   .ixtlan-hero {
@@ -220,17 +242,33 @@
   }
 
   .ixtlan-visual {
-    margin-left: 0;
     min-height: 60vh;
-    clip-path: polygon(0 var(--corte), 100% 0, 100% 100%, 0 100%);
+    margin-left: 0;
+    clip-path: polygon(
+      0 var(--corte),
+      100% 0,
+      100% 100%,
+      0 100%
+    );
   }
 
   .ixtlan-visual .carousel {
-    clip-path: polygon(0 calc(var(--corte) + 5px), 100% 5px, 100% 100%, 0 100%);
+    clip-path: polygon(
+      0 calc(var(--corte) + 5px),
+      100% 5px,
+      100% 100%,
+      0 100%
+    );
   }
 }
 
+
+/* =========================================================
+   RESPONSIVE: CELULAR
+   ========================================================= */
+
 @media (max-width: 767.98px) {
+  /* La línea del tiempo pasa al lado izquierdo */
   .linea-tiempo::before {
     left: 6px;
     transform: none;
@@ -248,5 +286,24 @@
   .hito:nth-child(even)::before {
     right: auto;
     left: 0;
+  }
+}
+
+
+/* =========================================================
+   ACCESIBILIDAD: MOVIMIENTO REDUCIDO
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .ixtlan-flecha {
+    transition: none;
+  }
+
+  .ixtlan-flecha:hover {
+    transform: none;
+  }
+
+  .aliado {
+    transition: none;
   }
 }

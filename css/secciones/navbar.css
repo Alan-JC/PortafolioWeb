@@ -1,59 +1,64 @@
-/* ========== BARRA DE NAVEGACIÓN ========== */
-/* Barra superior de la página */
+
+/* =========================================================
+   BARRA DE NAVEGACIÓN
+   ========================================================= */
+
 .barra-navegacion {
-  background-color: var(--negro);
-  /* Línea verde en el borde de abajo, es lo que le da el toque Petronas */
-  border-bottom: 3px solid var(--verde-petronas);
-  /* Espacio interno: 0.8rem arriba y abajo, 1rem a los lados */
+  position: relative;
   padding: 0.8rem 1rem;
+  background-color: var(--negro);
+  border-bottom: 3px solid var(--verde-petronas);
 }
 
-/* Mi nombre en la barra: plata normalmente */
+/* Nombre en la barra */
 .barra-navegacion .navbar-brand {
   color: var(--plata);
   font-weight: 400;
-  /* Separa un poco las letras para que se lea más limpio */
   letter-spacing: 0.05em;
 }
 
-/* Mi nombre cambia a azul cuando paso el mouse encima */
-.barra-navegacion .navbar-brand:hover {
-  color: var(--azul-kimmi);
+@media (hover: hover) and (pointer: fine) {
+  .barra-navegacion .navbar-brand:hover {
+    color: var(--azul-kimmi);
+  }
 }
 
-/* Botones del menú (Inicio, Proyectos, etc.) */
+/* Enlaces del menú */
 .boton-navegacion {
   color: var(--plata);
-  /* El borde existe desde el inicio pero es transparente.
-     Así, al pasar el mouse, el botón no cambia de tamaño ni "brinca" */
   border: 1px solid transparent;
-  /* Esquinas rectas, sin redondear */
   border-radius: 0;
   font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  /* Hace que el cambio de color al pasar el mouse sea suave y no de golpe */
-  transition: all 0.2s ease;
+  transition: color 0.2s ease, border-color 0.2s ease;
 }
 
-/* Al pasar el mouse: el texto se pone azul claro y el borde azul */
-.boton-navegacion:hover {
+@media (hover: hover) and (pointer: fine) {
+  .boton-navegacion:hover {
+    color: var(--verde-petronas);
+    border-color: transparent;
+  }
+}
+
+/* Página activa */
+.boton-navegacion.active {
   color: var(--verde-petronas);
-  border-color: transparent;
+  border-color: var(--verde-petronas);
 }
 
-/* En pantallas medianas o grandes, dejo espacio a la derecha de la barra
-   para las rayas. En celular ahí va la hamburguesa, por eso no se aplica */
+
+/* =========================================================
+   RAYAS ANIMADAS
+   ========================================================= */
+
 @media (min-width: 768px) {
   .barra-navegacion {
     padding-right: 6rem;
-    /* Recorta las rayas mientras entran y salen */
     overflow: hidden;
   }
 
-  /* Tres rayas inclinadas como "/", una por pseudo-elemento. clip-path
-     dibuja el paralelogramo. backwards las deja escondidas arriba
-     mientras esperan su retraso */
+  /* Tres elementos diagonales decorativos */
   .barra-navegacion::before,
   .barra-navegacion::after,
   .barra-navegacion > .container-fluid::after {
@@ -68,8 +73,6 @@
     pointer-events: none;
   }
 
-  /* De la más visible (izquierda) a la más tenue (derecha), cada una
-     arranca 0.25s después de la anterior */
   .barra-navegacion::before {
     right: 3.6rem;
     opacity: 0.9;
@@ -88,12 +91,61 @@
   }
 }
 
-/* Entra desde arriba, se queda completa un momento y sale por abajo */
+/* Entrada y salida vertical de las rayas */
 @keyframes bajar-raya {
-  0%        { transform: translateY(-140%); }
-  30%, 65%  { transform: translateY(0); }
-  100%      { transform: translateY(140%); }
+  0% {
+    transform: translateY(-140%);
+  }
+
+  30%, 65% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(140%);
+  }
 }
+
+
+/* =========================================================
+   BOTÓN HAMBURGUESA
+   ========================================================= */
+
+.barra-navegacion .navbar-toggler {
+  border-color: var(--verde-petronas);
+}
+
+.barra-navegacion .navbar-toggler-icon {
+  filter: invert(1);
+}
+
+/* Indicador de foco al interactuar con el botón */
+.barra-navegacion .navbar-toggler:focus {
+  box-shadow: 0 0 0 0.15rem rgba(0, 210, 190, 0.35);
+}
+
+
+/* =========================================================
+   RESPONSIVE: CELULAR
+   ========================================================= */
+
+@media (max-width: 767.98px) {
+  .contenedor-botones-navegacion {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem 0 0.5rem;
+  }
+
+  .boton-navegacion {
+    text-align: left;
+  }
+}
+
+
+/* =========================================================
+   ACCESIBILIDAD: MOVIMIENTO REDUCIDO
+   ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
   .barra-navegacion::before,
@@ -101,47 +153,8 @@
   .barra-navegacion > .container-fluid::after {
     animation: none;
   }
-}
 
-/* Botón de la página en la que estoy: se queda fijo en verde Petronas
-   para saber en qué página estoy */
-.boton-navegacion.active {
-  color: var(--verde-petronas);
-  border-color: var(--verde-petronas);
-}
-
-/* ========== BOTÓN HAMBURGUESA (solo se ve en celular) ========== */
-/* Borde verde del botón */
-.barra-navegacion .navbar-toggler {
-  border-color: var(--verde-petronas);
-}
-
-/* El ícono de las tres rayitas viene oscuro y el fondo también es oscuro,
-   así que lo invierto para que se vea claro */
-.barra-navegacion .navbar-toggler-icon {
-  filter: invert(1);
-}
-
-/* Brillo verde que aparece al darle clic al botón.
-   Reemplaza el azul que trae Bootstrap por defecto */
-.barra-navegacion .navbar-toggler:focus {
-  box-shadow: 0 0 0 0.15rem rgba(0, 210, 190, 0.35);
-}
-
-/* ========== VERSIÓN PARA CELULAR ========== */
-/* Estas reglas solo se aplican en pantallas de 767.98px de ancho o menos */
-@media (max-width: 767.98px) {
-  /* Contenedor de los botones: los pone uno debajo del otro */
-  .contenedor-botones-navegacion {
-    display: flex;
-    flex-direction: column;
-    /* Espacio entre un botón y otro */
-    gap: 0.5rem;
-    padding: 1rem 0 0.5rem;
-  }
-
-  /* El texto de cada botón se alinea a la izquierda */
   .boton-navegacion {
-    text-align: left;
+    transition: none;
   }
 }

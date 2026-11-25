@@ -1,168 +1,204 @@
-/* DESCRIPCIÓN DE PROYECTOS */
+
+/* =========================================================
+   DESCRIPCIÓN DE PROYECTOS
+   ========================================================= */
 
 .descripcion-proyectos {
-    background-color: #242424 ;
-    color: #121214;
-    padding: 30px 0 40px;
+  padding: 30px 0 40px;
+  background-color: var(--gris-oscuro2);
+  color: #121214;
 }
 
 .descripcion-proyectos h2 {
-    color: #02F5D0 ;
-    font-size: clamp(2rem, 4vw, 3.5rem);
-    font-weight: 700;
-    margin: 5px 0 10px;
+  margin: 5px 0 10px;
+  color: var(--verde-petronas);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 700;
 }
 
 .proyecto-anio {
-    color: #00A19B;
-    font-size: 0.9rem;
-    font-weight: 700;
-    letter-spacing: 2px;
+  color: var(--verde-petronas-ok);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 2px;
 }
 
 #proyecto-categoria {
-    color: #c8ccce;
-    font-size: 0.95rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+  color: var(--plata);
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 #proyecto-descripcion,
 #proyecto-rol {
-    color: #ffffff;
-    font-size: 1.05rem;
-    line-height: 1.8;
+  color: var(--blanco);
+  font-size: 1.05rem;
+  line-height: 1.8;
 }
 
 .proyecto-participacion {
-    margin-top: 30px;
+  margin-top: 30px;
 }
 
 .proyecto-participacion h5 {
-    font-weight: 700;
-    color: #00A19B;
+  color: var(--verde-petronas-ok);
+  font-weight: 700;
 }
 
+
+/* =========================================================
+   TECNOLOGÍAS
+   ========================================================= */
+
 .proyecto-tecnologias {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 25px;
 }
 
 .etiqueta-tecnologia {
-    padding: 8px 15px;
-    border: 1px solid #dddddd;
-    border-radius: 3px;
-    color: #333333;
-    font-size: 0.85rem;
-    background: #ffffff;
+  padding: 8px 15px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  background: var(--blanco);
+  color: #333333;
+  font-size: 0.85rem;
 }
 
-/* BOTONES */
+
+/* =========================================================
+   BOTONES DEL PROYECTO
+   ========================================================= */
 
 .proyecto-botones {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 30px;
 }
 
 .btn-proyecto {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 13px 24px;
-    font-size: 0.9rem;
-    font-weight: 700;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    border: 1px solid #121214;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 24px;
+  border: 1px solid #121214;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease;
 }
 
 .btn-repo {
-    background-color: #02F5D0;
-    color: #121214;
-}
-
-.btn-repo:hover {
-    background-color: #72FF13;
-    color: #121214;
+  background-color: var(--verde-petronas);
+  color: #121214;
 }
 
 .btn-demo {
-    background-color: #ffffff;
-    color: #121214;
+  background-color: var(--blanco);
+  color: #121214;
 }
 
-.btn-demo:hover {
-    background-color: #72FF13;
-    border-color: #72FF13;
+/* Efectos al pasar el cursor */
+@media (hover: hover) and (pointer: fine) {
+  .btn-repo:hover {
+    background-color: var(--verde-electrico);
     color: #121214;
+  }
+
+  .btn-demo:hover {
+    background-color: var(--verde-electrico);
+    border-color: var(--verde-electrico);
+    color: #121214;
+  }
 }
 
-/* MODELO 3D */
 
-/* La columna derecha se divide en dos: el texto a la izquierda y el modelo
-   a la derecha. La última fila (1fr) absorbe el espacio que sobre, para que
-   los tres bloques de texto no se separen entre sí */
+/* =========================================================
+   DISTRIBUCIÓN DEL TEXTO Y MODELO 3D
+   ========================================================= */
+
+/* Dos columnas: contenido a la izquierda y visor a la derecha */
 .proyecto-columna-derecha {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto 1fr;
-    column-gap: 2rem;
-    align-items: start;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto 1fr;
+  column-gap: 2rem;
+  align-items: start;
 }
 
-/* Todo lo que no sea el visor (descripción, participación y tecnologías)
-   va en la primera columna */
+/* El contenido textual ocupa la primera columna */
 .proyecto-columna-derecha > *:not(model-viewer) {
-    grid-column: 1;
+  grid-column: 1;
 }
 
-/* El visor ocupa la segunda columna y abarca las tres filas de texto.
-   Para cambiar su tamaño, modifica la altura */
+/* El visor ocupa la segunda columna y las tres filas */
 .visor-modelo-3d {
-    grid-column: 2;
-    grid-row: 1 / span 3;
-    width: 100%;
-    height: 320px;
-    background-color: transparent;
+  grid-column: 2;
+  grid-row: 1 / span 3;
+  width: 100%;
+  height: 320px;
+  background-color: transparent;
 }
 
-/* Cuando el visor está oculto (proyectos sin modelo) no ocupa espacio */
+/* Los proyectos sin modelo no reservan espacio para el visor */
 .visor-modelo-3d[hidden] {
-    display: none;
+  display: none;
 }
 
-/* Si el proyecto no tiene modelo, el texto usa todo el ancho de la columna */
 .proyecto-columna-derecha:has(.visor-modelo-3d[hidden]) {
+  grid-template-columns: 1fr;
+}
+
+
+/* =========================================================
+   RESPONSIVE: TABLET
+   ========================================================= */
+
+@media (max-width: 991.98px) {
+  /* El modelo pasa debajo del contenido */
+  .proyecto-columna-derecha {
     grid-template-columns: 1fr;
+  }
+
+  .visor-modelo-3d {
+    grid-column: 1;
+    grid-row: auto;
+    margin-top: 1.5rem;
+  }
 }
 
-@media (max-width: 991px) {
-    /* En pantallas medianas y pequeñas el modelo pasa debajo del texto */
-    .proyecto-columna-derecha {
-        grid-template-columns: 1fr;
-    }
 
-    .visor-modelo-3d {
-        grid-column: 1;
-        grid-row: auto;
-        margin-top: 1.5rem;
-    }
+/* =========================================================
+   RESPONSIVE: CELULAR
+   ========================================================= */
+
+@media (max-width: 767.98px) {
+  .descripcion-proyectos {
+    padding: 30px 0;
+  }
+
+  .proyecto-botones {
+    flex-direction: column;
+  }
+
+  .btn-proyecto {
+    width: 100%;
+  }
 }
 
-@media (max-width: 768px) {
-    .descripcion-proyectos {
-        padding: 30px 0;
-    }
 
-    .proyecto-botones {
-        flex-direction: column;
-    }
+/* =========================================================
+   ACCESIBILIDAD: MOVIMIENTO REDUCIDO
+   ========================================================= */
 
-    .btn-proyecto {
-        width: 100%;
-    }
+@media (prefers-reduced-motion: reduce) {
+  .btn-proyecto {
+    transition: none;
+  }
 }

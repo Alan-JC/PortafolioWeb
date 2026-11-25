@@ -1,25 +1,28 @@
-/* ========== COLORES DEL SITIO ========== */
-/* Aquí defino los colores una sola vez. Si quiero cambiar uno,
-   lo cambio en esta parte y se actualiza en todo el sitio */
+/* =========================================================
+   VARIABLES GLOBALES
+   ========================================================= */
+
 :root {
   --negro: #000000;
   --gris-oscuro: #0a0a0c;
+  --gris-oscuro2: #242424;
   --plata: #c8ccce;
+  --blanco: #ffffff;
+
   --verde-petronas: #02F5D0;
   --verde-petronas-ok: #00a19b;
-  --blanco: #ffffff;
+  --verde-electrico: #72FF13;
+
   --azul-kimmi: #005FB5;
   --azul-rusell: #00F0FF;
-  --verde-electrico: #72FF13;
-  --gris-oscuro2: #242424;
 }
 
-/* ========== ESTILOS GENERALES ========== */
-/* Fondo negro y texto verde para todas las páginas.
-   Si la fuente Sora no carga, el navegador usa monospace */
+
+/* =========================================================
+   ESTILOS GENERALES
+   ========================================================= */
+
+/* Fondo base del sitio */
 body {
-  /* Color base. Se ve a través de las partes transparentes de la textura */
   background-color: var(--negro);
-
-
 }
